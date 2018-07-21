@@ -29,7 +29,25 @@ namespace FacebookApp
             pictureBox_ProfilePicture.LoadAsync(m_LoggedInUser.PictureNormalURL);
             textBox_FirstName.Text = m_LoggedInUser.FirstName;
             textBox_LastName.Text = m_LoggedInUser.LastName;
+            textBox_email.Text = m_LoggedInUser.Email;
+            visibleElements();
 
+        }
+
+        private void visibleElements()
+        {
+            label_AppID.Visible = false;
+            comboBox_AppID.Visible = false;
+            buttonLogin.Visible = false;
+            groupBox_Details.Visible = true;
+            //label_FirstName.Visible = true;
+            //label_LastName.Visible = true;
+            //label_email.Visible = true;
+            //textBox_FirstName.Visible = true;
+            //textBox_LastName.Visible = true;
+            //textBox_email.Visible = true;
+            listBox_Collecitons.Visible = true;
+            comboBox_Collections.Visible = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
