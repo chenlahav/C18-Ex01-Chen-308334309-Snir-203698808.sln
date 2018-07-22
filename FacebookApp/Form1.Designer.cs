@@ -1,6 +1,6 @@
 ﻿namespace FacebookApp
 {
-    partial class Form1
+    partial class Form_FacebookApp
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox_Collections = new System.Windows.Forms.ComboBox();
             this.listBox_Collecitons = new System.Windows.Forms.ListBox();
             this.textBox_LastName = new System.Windows.Forms.TextBox();
             this.textBox_FirstName = new System.Windows.Forms.TextBox();
@@ -41,30 +40,21 @@
             this.label_email = new System.Windows.Forms.Label();
             this.textBox_email = new System.Windows.Forms.TextBox();
             this.groupBox_Details = new System.Windows.Forms.GroupBox();
+            this.label_Friends = new System.Windows.Forms.Label();
+            this.panel_friends = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ProfilePicture)).BeginInit();
             this.groupBox_Details.SuspendLayout();
+            this.panel_friends.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // comboBox_Collections
-            // 
-            this.comboBox_Collections.FormattingEnabled = true;
-            this.comboBox_Collections.Location = new System.Drawing.Point(29, 427);
-            this.comboBox_Collections.Name = "comboBox_Collections";
-            this.comboBox_Collections.Size = new System.Drawing.Size(427, 39);
-            this.comboBox_Collections.TabIndex = 8;
-            this.comboBox_Collections.Visible = false;
-            this.comboBox_Collections.SelectedIndexChanged += new System.EventHandler(this.comboBox_Collections_SelectedIndexChanged);
             // 
             // listBox_Collecitons
             // 
             this.listBox_Collecitons.FormattingEnabled = true;
             this.listBox_Collecitons.ItemHeight = 31;
-            this.listBox_Collecitons.Location = new System.Drawing.Point(29, 485);
+            this.listBox_Collecitons.Location = new System.Drawing.Point(13, 84);
             this.listBox_Collecitons.Name = "listBox_Collecitons";
             this.listBox_Collecitons.Size = new System.Drawing.Size(427, 345);
             this.listBox_Collecitons.TabIndex = 9;
-            this.listBox_Collecitons.Visible = false;
-            this.listBox_Collecitons.SelectedIndexChanged += new System.EventHandler(this.listBox_Collecitons_SelectedIndexChanged);
             // 
             // textBox_LastName
             // 
@@ -93,7 +83,7 @@
             // 
             // pictureBox_ProfilePicture
             // 
-            this.pictureBox_ProfilePicture.Location = new System.Drawing.Point(578, 50);
+            this.pictureBox_ProfilePicture.Location = new System.Drawing.Point(578, 41);
             this.pictureBox_ProfilePicture.Name = "pictureBox_ProfilePicture";
             this.pictureBox_ProfilePicture.Size = new System.Drawing.Size(283, 272);
             this.pictureBox_ProfilePicture.TabIndex = 1;
@@ -169,30 +159,49 @@
             this.groupBox_Details.Text = "Details";
             this.groupBox_Details.Visible = false;
             // 
-            // Form1
+            // label_Friends
+            // 
+            this.label_Friends.AutoSize = true;
+            this.label_Friends.Location = new System.Drawing.Point(7, 26);
+            this.label_Friends.Name = "label_Friends";
+            this.label_Friends.Size = new System.Drawing.Size(118, 32);
+            this.label_Friends.TabIndex = 13;
+            this.label_Friends.Text = "Friends:";
+            // 
+            // panel_friends
+            // 
+            this.panel_friends.Controls.Add(this.listBox_Collecitons);
+            this.panel_friends.Controls.Add(this.label_Friends);
+            this.panel_friends.Location = new System.Drawing.Point(57, 373);
+            this.panel_friends.Name = "panel_friends";
+            this.panel_friends.Size = new System.Drawing.Size(449, 444);
+            this.panel_friends.TabIndex = 14;
+            this.panel_friends.Visible = false;
+            // 
+            // Form_FacebookApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1016, 925);
+            this.ClientSize = new System.Drawing.Size(1048, 1748);
+            this.Controls.Add(this.panel_friends);
             this.Controls.Add(this.groupBox_Details);
             this.Controls.Add(this.label_AppID);
             this.Controls.Add(this.comboBox_AppID);
             this.Controls.Add(this.buttonLogin);
-            this.Controls.Add(this.listBox_Collecitons);
-            this.Controls.Add(this.comboBox_Collections);
-            this.Name = "Form1";
+            this.Name = "Form_FacebookApp";
             this.Text = "FacebookApp";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ProfilePicture)).EndInit();
             this.groupBox_Details.ResumeLayout(false);
             this.groupBox_Details.PerformLayout();
+            this.panel_friends.ResumeLayout(false);
+            this.panel_friends.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox comboBox_Collections;
         private System.Windows.Forms.ListBox listBox_Collecitons;
         private System.Windows.Forms.TextBox textBox_LastName;
         private System.Windows.Forms.TextBox textBox_FirstName;
@@ -205,6 +214,8 @@
         private System.Windows.Forms.Label label_email;
         private System.Windows.Forms.TextBox textBox_email;
         private System.Windows.Forms.GroupBox groupBox_Details;
+        private System.Windows.Forms.Label label_Friends;
+        private System.Windows.Forms.Panel panel_friends;
     }
 }
 
