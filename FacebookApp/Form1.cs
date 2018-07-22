@@ -19,6 +19,7 @@ namespace FacebookApp
         public Form_FacebookApp()
         {
             InitializeComponent();
+            this.ClientSize = new System.Drawing.Size(500, 600);
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -97,12 +98,15 @@ namespace FacebookApp
 
         private void listBox_Friends_SelectedIndexChanged(object sender, EventArgs e)
         {
-            User selectedFriend = listBox_Friends.SelectedItem as User;
-            textBox_friendFIrstName.Text = selectedFriend.FirstName;
-            textBox_friendLastName.Text = selectedFriend.LastName;
-            textBox_friendEmail.Text = selectedFriend.Email;
-            pictureBox_friend.LoadAsync(selectedFriend.PictureSmallURL);
-            panel_friendDetails.Visible = true;
+            if(listBox_Friends.SelectedItem != null)
+            {
+                User selectedFriend = listBox_Friends.SelectedItem as User;
+                textBox_friendFIrstName.Text = selectedFriend.FirstName;
+                textBox_friendLastName.Text = selectedFriend.LastName;
+                textBox_friendEmail.Text = selectedFriend.Email;
+                pictureBox_friend.LoadAsync(selectedFriend.PictureSmallURL);
+                panel_friendDetails.Visible = true;
+            }
         }
     }
 }
