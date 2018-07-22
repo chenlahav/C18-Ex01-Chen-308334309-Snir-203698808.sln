@@ -26,7 +26,7 @@ namespace FacebookApp
         {
 
             string appID = comboBox_AppID.Text;
-            LoginResult result = FacebookService.Login(appID, "email","user_friends");
+            LoginResult result = FacebookService.Login(appID, "email","user_friends", "user_events");
             m_LoggedInUser = result.LoggedInUser;
             pictureBox_ProfilePicture.LoadAsync(m_LoggedInUser.PictureNormalURL);
             textBox_FirstName.Text = m_LoggedInUser.FirstName;
@@ -76,11 +76,7 @@ namespace FacebookApp
                 listBox_Events.Items.Clear();
                 foreach (var FBevent in m_LoggedInUser.Events)
                 {
-                    if((FBevent.StartTime >= dateTimePicker_startDate.Value) 
-                        && (FBevent.EndTime <= dateTimePicker_endDate.Value))
-                    {
-                        listBox_Events.Items.Add(string.Format(FBevent.Name));
-                    }
+                    listBox_Events.Items.Add(string.Format(FBevent.Name));
                 }
 
             }
@@ -103,7 +99,6 @@ namespace FacebookApp
                 User selectedFriend = listBox_Friends.SelectedItem as User;
                 textBox_friendFIrstName.Text = selectedFriend.FirstName;
                 textBox_friendLastName.Text = selectedFriend.LastName;
-                textBox_friendEmail.Text = selectedFriend.Email;
                 pictureBox_friend.LoadAsync(selectedFriend.PictureSmallURL);
                 panel_friendDetails.Visible = true;
             }

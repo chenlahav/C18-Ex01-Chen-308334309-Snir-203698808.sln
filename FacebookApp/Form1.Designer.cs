@@ -46,15 +46,9 @@
             this.pictureBox_friend = new System.Windows.Forms.PictureBox();
             this.label_friendLastName = new System.Windows.Forms.Label();
             this.label_friendFirstName = new System.Windows.Forms.Label();
-            this.textBox_friendEmail = new System.Windows.Forms.TextBox();
             this.textBox_friendFIrstName = new System.Windows.Forms.TextBox();
-            this.label_friendEmail = new System.Windows.Forms.Label();
             this.textBox_friendLastName = new System.Windows.Forms.TextBox();
             this.panel_events = new System.Windows.Forms.Panel();
-            this.label_endDate = new System.Windows.Forms.Label();
-            this.label_startDate = new System.Windows.Forms.Label();
-            this.dateTimePicker_endDate = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker_startDate = new System.Windows.Forms.DateTimePicker();
             this.listBox_Events = new System.Windows.Forms.ListBox();
             this.label_Events = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ProfilePicture)).BeginInit();
@@ -202,9 +196,7 @@
             this.panel_friendDetails.Controls.Add(this.pictureBox_friend);
             this.panel_friendDetails.Controls.Add(this.label_friendLastName);
             this.panel_friendDetails.Controls.Add(this.label_friendFirstName);
-            this.panel_friendDetails.Controls.Add(this.textBox_friendEmail);
             this.panel_friendDetails.Controls.Add(this.textBox_friendFIrstName);
-            this.panel_friendDetails.Controls.Add(this.label_friendEmail);
             this.panel_friendDetails.Controls.Add(this.textBox_friendLastName);
             this.panel_friendDetails.Location = new System.Drawing.Point(554, 457);
             this.panel_friendDetails.Name = "panel_friendDetails";
@@ -214,7 +206,7 @@
             // 
             // pictureBox_friend
             // 
-            this.pictureBox_friend.Location = new System.Drawing.Point(215, 3);
+            this.pictureBox_friend.Location = new System.Drawing.Point(213, 21);
             this.pictureBox_friend.Name = "pictureBox_friend";
             this.pictureBox_friend.Size = new System.Drawing.Size(153, 141);
             this.pictureBox_friend.TabIndex = 18;
@@ -223,7 +215,7 @@
             // label_friendLastName
             // 
             this.label_friendLastName.AutoSize = true;
-            this.label_friendLastName.Location = new System.Drawing.Point(21, 231);
+            this.label_friendLastName.Location = new System.Drawing.Point(22, 259);
             this.label_friendLastName.Name = "label_friendLastName";
             this.label_friendLastName.Size = new System.Drawing.Size(159, 32);
             this.label_friendLastName.TabIndex = 15;
@@ -232,51 +224,30 @@
             // label_friendFirstName
             // 
             this.label_friendFirstName.AutoSize = true;
-            this.label_friendFirstName.Location = new System.Drawing.Point(21, 162);
+            this.label_friendFirstName.Location = new System.Drawing.Point(22, 190);
             this.label_friendFirstName.Name = "label_friendFirstName";
             this.label_friendFirstName.Size = new System.Drawing.Size(160, 32);
             this.label_friendFirstName.TabIndex = 14;
             this.label_friendFirstName.Text = "First Name:";
             // 
-            // textBox_friendEmail
-            // 
-            this.textBox_friendEmail.Enabled = false;
-            this.textBox_friendEmail.Location = new System.Drawing.Point(202, 295);
-            this.textBox_friendEmail.Name = "textBox_friendEmail";
-            this.textBox_friendEmail.Size = new System.Drawing.Size(341, 38);
-            this.textBox_friendEmail.TabIndex = 16;
-            // 
             // textBox_friendFIrstName
             // 
             this.textBox_friendFIrstName.Enabled = false;
-            this.textBox_friendFIrstName.Location = new System.Drawing.Point(202, 162);
+            this.textBox_friendFIrstName.Location = new System.Drawing.Point(203, 190);
             this.textBox_friendFIrstName.Name = "textBox_friendFIrstName";
             this.textBox_friendFIrstName.Size = new System.Drawing.Size(341, 38);
             this.textBox_friendFIrstName.TabIndex = 13;
             // 
-            // label_friendEmail
-            // 
-            this.label_friendEmail.AutoSize = true;
-            this.label_friendEmail.Location = new System.Drawing.Point(21, 295);
-            this.label_friendEmail.Name = "label_friendEmail";
-            this.label_friendEmail.Size = new System.Drawing.Size(95, 32);
-            this.label_friendEmail.TabIndex = 17;
-            this.label_friendEmail.Text = "Email:";
-            // 
             // textBox_friendLastName
             // 
             this.textBox_friendLastName.Enabled = false;
-            this.textBox_friendLastName.Location = new System.Drawing.Point(202, 231);
+            this.textBox_friendLastName.Location = new System.Drawing.Point(203, 259);
             this.textBox_friendLastName.Name = "textBox_friendLastName";
             this.textBox_friendLastName.Size = new System.Drawing.Size(341, 38);
             this.textBox_friendLastName.TabIndex = 12;
             // 
             // panel_events
             // 
-            this.panel_events.Controls.Add(this.label_endDate);
-            this.panel_events.Controls.Add(this.label_startDate);
-            this.panel_events.Controls.Add(this.dateTimePicker_endDate);
-            this.panel_events.Controls.Add(this.dateTimePicker_startDate);
             this.panel_events.Controls.Add(this.listBox_Events);
             this.panel_events.Controls.Add(this.label_Events);
             this.panel_events.Location = new System.Drawing.Point(57, 897);
@@ -284,40 +255,6 @@
             this.panel_events.Size = new System.Drawing.Size(1069, 444);
             this.panel_events.TabIndex = 15;
             this.panel_events.Visible = false;
-            // 
-            // label_endDate
-            // 
-            this.label_endDate.AutoSize = true;
-            this.label_endDate.Location = new System.Drawing.Point(529, 231);
-            this.label_endDate.Name = "label_endDate";
-            this.label_endDate.Size = new System.Drawing.Size(141, 32);
-            this.label_endDate.TabIndex = 17;
-            this.label_endDate.Text = "End Date:";
-            // 
-            // label_startDate
-            // 
-            this.label_startDate.AutoSize = true;
-            this.label_startDate.Location = new System.Drawing.Point(529, 84);
-            this.label_startDate.Name = "label_startDate";
-            this.label_startDate.Size = new System.Drawing.Size(150, 32);
-            this.label_startDate.TabIndex = 16;
-            this.label_startDate.Text = "Start Date:";
-            // 
-            // dateTimePicker_endDate
-            // 
-            this.dateTimePicker_endDate.Location = new System.Drawing.Point(535, 279);
-            this.dateTimePicker_endDate.Name = "dateTimePicker_endDate";
-            this.dateTimePicker_endDate.Size = new System.Drawing.Size(516, 38);
-            this.dateTimePicker_endDate.TabIndex = 15;
-            this.dateTimePicker_endDate.ValueChanged += new System.EventHandler(this.dateTimePicker_endDate_ValueChanged);
-            // 
-            // dateTimePicker_startDate
-            // 
-            this.dateTimePicker_startDate.Location = new System.Drawing.Point(535, 136);
-            this.dateTimePicker_startDate.Name = "dateTimePicker_startDate";
-            this.dateTimePicker_startDate.Size = new System.Drawing.Size(516, 38);
-            this.dateTimePicker_startDate.TabIndex = 14;
-            this.dateTimePicker_startDate.ValueChanged += new System.EventHandler(this.dateTimePicker_startDate_ValueChanged);
             // 
             // listBox_Events
             // 
@@ -385,16 +322,10 @@
         private System.Windows.Forms.Panel panel_events;
         private System.Windows.Forms.ListBox listBox_Events;
         private System.Windows.Forms.Label label_Events;
-        private System.Windows.Forms.Label label_endDate;
-        private System.Windows.Forms.Label label_startDate;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_endDate;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_startDate;
         private System.Windows.Forms.Panel panel_friendDetails;
         private System.Windows.Forms.Label label_friendLastName;
         private System.Windows.Forms.Label label_friendFirstName;
-        private System.Windows.Forms.TextBox textBox_friendEmail;
         private System.Windows.Forms.TextBox textBox_friendFIrstName;
-        private System.Windows.Forms.Label label_friendEmail;
         private System.Windows.Forms.TextBox textBox_friendLastName;
         private System.Windows.Forms.PictureBox pictureBox_friend;
     }
