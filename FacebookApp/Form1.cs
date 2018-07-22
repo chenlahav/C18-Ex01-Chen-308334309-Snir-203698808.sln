@@ -71,14 +71,22 @@ namespace FacebookApp
 
         private void initEventsList()
         {
-            if (m_LoggedInUser.Events != null)
+            try
             {
-                listBox_Events.Items.Clear();
-                foreach (var FBevent in m_LoggedInUser.Events)
-                {
-                    listBox_Events.Items.Add(string.Format(FBevent.Name));
-                }
 
+                if (m_LoggedInUser.Events != null)
+                {
+                    listBox_Events.Items.Clear();
+                    foreach (var FBevent in m_LoggedInUser.Events)
+                    {
+                        listBox_Events.Items.Add(string.Format(FBevent.Name));
+                    }
+
+                }
+            }
+            catch (FacebookOAuthException e)
+            {
+                // DO nothing. The event will not display.
             }
         }
 
