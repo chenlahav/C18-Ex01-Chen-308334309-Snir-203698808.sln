@@ -51,12 +51,24 @@
             this.panel_events = new System.Windows.Forms.Panel();
             this.listBox_Events = new System.Windows.Forms.ListBox();
             this.label_Events = new System.Windows.Forms.Label();
+            this.panel_eventDetails = new System.Windows.Forms.Panel();
+            this.pictureBox_event = new System.Windows.Forms.PictureBox();
+            this.label_event_description = new System.Windows.Forms.Label();
+            this.label_eventName = new System.Windows.Forms.Label();
+            this.textBox_eventName = new System.Windows.Forms.TextBox();
+            this.textBox_eventDescription = new System.Windows.Forms.TextBox();
+            this.label_eventLocation = new System.Windows.Forms.Label();
+            this.textBox_eventLocation = new System.Windows.Forms.TextBox();
+            this.label_eventDate = new System.Windows.Forms.Label();
+            this.dateTimePicker_eventDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ProfilePicture)).BeginInit();
             this.groupBox_Details.SuspendLayout();
             this.panel_friends.SuspendLayout();
             this.panel_friendDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_friend)).BeginInit();
             this.panel_events.SuspendLayout();
+            this.panel_eventDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_event)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox_Friends
@@ -252,7 +264,7 @@
             this.panel_events.Controls.Add(this.label_Events);
             this.panel_events.Location = new System.Drawing.Point(57, 897);
             this.panel_events.Name = "panel_events";
-            this.panel_events.Size = new System.Drawing.Size(1069, 444);
+            this.panel_events.Size = new System.Drawing.Size(456, 444);
             this.panel_events.TabIndex = 15;
             this.panel_events.Visible = false;
             // 
@@ -264,6 +276,7 @@
             this.listBox_Events.Name = "listBox_Events";
             this.listBox_Events.Size = new System.Drawing.Size(427, 345);
             this.listBox_Events.TabIndex = 9;
+            this.listBox_Events.SelectedIndexChanged += new System.EventHandler(this.listBox_Events_SelectedIndexChanged);
             // 
             // label_Events
             // 
@@ -274,11 +287,105 @@
             this.label_Events.TabIndex = 13;
             this.label_Events.Text = "Events:";
             // 
+            // panel_eventDetails
+            // 
+            this.panel_eventDetails.Controls.Add(this.dateTimePicker_eventDate);
+            this.panel_eventDetails.Controls.Add(this.label_eventDate);
+            this.panel_eventDetails.Controls.Add(this.textBox_eventLocation);
+            this.panel_eventDetails.Controls.Add(this.label_eventLocation);
+            this.panel_eventDetails.Controls.Add(this.pictureBox_event);
+            this.panel_eventDetails.Controls.Add(this.label_event_description);
+            this.panel_eventDetails.Controls.Add(this.label_eventName);
+            this.panel_eventDetails.Controls.Add(this.textBox_eventName);
+            this.panel_eventDetails.Controls.Add(this.textBox_eventDescription);
+            this.panel_eventDetails.Location = new System.Drawing.Point(554, 897);
+            this.panel_eventDetails.Name = "panel_eventDetails";
+            this.panel_eventDetails.Size = new System.Drawing.Size(712, 444);
+            this.panel_eventDetails.TabIndex = 19;
+            this.panel_eventDetails.Visible = false;
+            // 
+            // pictureBox_event
+            // 
+            this.pictureBox_event.Location = new System.Drawing.Point(213, 26);
+            this.pictureBox_event.Name = "pictureBox_event";
+            this.pictureBox_event.Size = new System.Drawing.Size(153, 141);
+            this.pictureBox_event.TabIndex = 18;
+            this.pictureBox_event.TabStop = false;
+            // 
+            // label_event_description
+            // 
+            this.label_event_description.AutoSize = true;
+            this.label_event_description.Location = new System.Drawing.Point(22, 259);
+            this.label_event_description.Name = "label_event_description";
+            this.label_event_description.Size = new System.Drawing.Size(166, 32);
+            this.label_event_description.TabIndex = 15;
+            this.label_event_description.Text = "Description:";
+            // 
+            // label_eventName
+            // 
+            this.label_eventName.AutoSize = true;
+            this.label_eventName.Location = new System.Drawing.Point(22, 190);
+            this.label_eventName.Name = "label_eventName";
+            this.label_eventName.Size = new System.Drawing.Size(178, 32);
+            this.label_eventName.TabIndex = 14;
+            this.label_eventName.Text = "Event Name:";
+            // 
+            // textBox_eventName
+            // 
+            this.textBox_eventName.Enabled = false;
+            this.textBox_eventName.Location = new System.Drawing.Point(204, 190);
+            this.textBox_eventName.Name = "textBox_eventName";
+            this.textBox_eventName.Size = new System.Drawing.Size(492, 38);
+            this.textBox_eventName.TabIndex = 13;
+            // 
+            // textBox_eventDescription
+            // 
+            this.textBox_eventDescription.Enabled = false;
+            this.textBox_eventDescription.Location = new System.Drawing.Point(203, 259);
+            this.textBox_eventDescription.Name = "textBox_eventDescription";
+            this.textBox_eventDescription.Size = new System.Drawing.Size(492, 38);
+            this.textBox_eventDescription.TabIndex = 12;
+            // 
+            // label_eventLocation
+            // 
+            this.label_eventLocation.AutoSize = true;
+            this.label_eventLocation.Location = new System.Drawing.Point(22, 334);
+            this.label_eventLocation.Name = "label_eventLocation";
+            this.label_eventLocation.Size = new System.Drawing.Size(132, 32);
+            this.label_eventLocation.TabIndex = 19;
+            this.label_eventLocation.Text = "Location:";
+            // 
+            // textBox_eventLocation
+            // 
+            this.textBox_eventLocation.Enabled = false;
+            this.textBox_eventLocation.Location = new System.Drawing.Point(203, 334);
+            this.textBox_eventLocation.Name = "textBox_eventLocation";
+            this.textBox_eventLocation.Size = new System.Drawing.Size(492, 38);
+            this.textBox_eventLocation.TabIndex = 20;
+            // 
+            // label_eventDate
+            // 
+            this.label_eventDate.AutoSize = true;
+            this.label_eventDate.Location = new System.Drawing.Point(22, 397);
+            this.label_eventDate.Name = "label_eventDate";
+            this.label_eventDate.Size = new System.Drawing.Size(83, 32);
+            this.label_eventDate.TabIndex = 21;
+            this.label_eventDate.Text = "Date:";
+            // 
+            // dateTimePicker_eventDate
+            // 
+            this.dateTimePicker_eventDate.Enabled = false;
+            this.dateTimePicker_eventDate.Location = new System.Drawing.Point(203, 397);
+            this.dateTimePicker_eventDate.Name = "dateTimePicker_eventDate";
+            this.dateTimePicker_eventDate.Size = new System.Drawing.Size(492, 38);
+            this.dateTimePicker_eventDate.TabIndex = 22;
+            // 
             // Form_FacebookApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1758, 1437);
+            this.Controls.Add(this.panel_eventDetails);
             this.Controls.Add(this.panel_friendDetails);
             this.Controls.Add(this.panel_events);
             this.Controls.Add(this.panel_friends);
@@ -299,6 +406,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_friend)).EndInit();
             this.panel_events.ResumeLayout(false);
             this.panel_events.PerformLayout();
+            this.panel_eventDetails.ResumeLayout(false);
+            this.panel_eventDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_event)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,6 +438,16 @@
         private System.Windows.Forms.TextBox textBox_friendFIrstName;
         private System.Windows.Forms.TextBox textBox_friendLastName;
         private System.Windows.Forms.PictureBox pictureBox_friend;
+        private System.Windows.Forms.Panel panel_eventDetails;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_eventDate;
+        private System.Windows.Forms.Label label_eventDate;
+        private System.Windows.Forms.TextBox textBox_eventLocation;
+        private System.Windows.Forms.Label label_eventLocation;
+        private System.Windows.Forms.PictureBox pictureBox_event;
+        private System.Windows.Forms.Label label_event_description;
+        private System.Windows.Forms.Label label_eventName;
+        private System.Windows.Forms.TextBox textBox_eventName;
+        private System.Windows.Forms.TextBox textBox_eventDescription;
     }
 }
 

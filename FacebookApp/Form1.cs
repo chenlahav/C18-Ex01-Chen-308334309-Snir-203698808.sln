@@ -26,7 +26,7 @@ namespace FacebookApp
         {
 
             string appID = comboBox_AppID.Text;
-            LoginResult result = FacebookService.Login(appID, "email","user_friends", "user_events");
+            LoginResult result = FacebookService.Login(appID, "email","user_friends", "user_events", "user_location");
             m_LoggedInUser = result.LoggedInUser;
             pictureBox_ProfilePicture.LoadAsync(m_LoggedInUser.PictureNormalURL);
             textBox_FirstName.Text = m_LoggedInUser.FirstName;
@@ -52,7 +52,7 @@ namespace FacebookApp
         {
             comboBox_AppID.Items.Add("272862089537667");
             comboBox_AppID.Items.Add("1430451463721328");
-            comboBox_AppID.SelectedIndex = 0;
+            comboBox_AppID.SelectedIndex = 1;
         }
 
         private void initFriendList()
@@ -77,9 +77,10 @@ namespace FacebookApp
                 if (m_LoggedInUser.Events != null)
                 {
                     listBox_Events.Items.Clear();
-                    foreach (var FBevent in m_LoggedInUser.Events)
+                    listBox_Events.DisplayMember = "Name";
+                    foreach (Event FBevent in m_LoggedInUser.Events)
                     {
-                        listBox_Events.Items.Add(string.Format(FBevent.Name));
+                        listBox_Events.Items.Add(FBevent);
                     }
 
                 }
@@ -109,6 +110,20 @@ namespace FacebookApp
                 textBox_friendLastName.Text = selectedFriend.LastName;
                 pictureBox_friend.LoadAsync(selectedFriend.PictureSmallURL);
                 panel_friendDetails.Visible = true;
+            }
+        }
+
+        private void listBox_Events_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox_Events.SelectedItem != null)
+            {
+                Event selectedEvent = listBox_Events.SelectedItem as Event;
+                textBox_eventName.Text = selectedEvent.Name;
+                textBox_eventLocation.Text = selectedEvent.Place.Location.City;
+                textBox_eventDescription.Text = selectedEvent.Description;
+                dateTimePicker_eventDate.Value = (DateTime)selectedEvent.StartTime;
+                pictureBox_event.LoadAsync(selectedEvent.PictureSmallURL);
+                panel_eventDetails.Visible = true;
             }
         }
     }
