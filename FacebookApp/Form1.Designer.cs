@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox_Collecitons = new System.Windows.Forms.ListBox();
+            this.listBox_Friends = new System.Windows.Forms.ListBox();
             this.textBox_LastName = new System.Windows.Forms.TextBox();
             this.textBox_FirstName = new System.Windows.Forms.TextBox();
             this.label_FirstName = new System.Windows.Forms.Label();
@@ -42,24 +42,43 @@
             this.groupBox_Details = new System.Windows.Forms.GroupBox();
             this.label_Friends = new System.Windows.Forms.Label();
             this.panel_friends = new System.Windows.Forms.Panel();
+            this.panel_friendDetails = new System.Windows.Forms.Panel();
+            this.pictureBox_friend = new System.Windows.Forms.PictureBox();
+            this.label_friendLastName = new System.Windows.Forms.Label();
+            this.label_friendFirstName = new System.Windows.Forms.Label();
+            this.textBox_friendEmail = new System.Windows.Forms.TextBox();
+            this.textBox_friendFIrstName = new System.Windows.Forms.TextBox();
+            this.label_friendEmail = new System.Windows.Forms.Label();
+            this.textBox_friendLastName = new System.Windows.Forms.TextBox();
+            this.panel_events = new System.Windows.Forms.Panel();
+            this.label_endDate = new System.Windows.Forms.Label();
+            this.label_startDate = new System.Windows.Forms.Label();
+            this.dateTimePicker_endDate = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker_startDate = new System.Windows.Forms.DateTimePicker();
+            this.listBox_Events = new System.Windows.Forms.ListBox();
+            this.label_Events = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ProfilePicture)).BeginInit();
             this.groupBox_Details.SuspendLayout();
             this.panel_friends.SuspendLayout();
+            this.panel_friendDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_friend)).BeginInit();
+            this.panel_events.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listBox_Collecitons
+            // listBox_Friends
             // 
-            this.listBox_Collecitons.FormattingEnabled = true;
-            this.listBox_Collecitons.ItemHeight = 31;
-            this.listBox_Collecitons.Location = new System.Drawing.Point(13, 84);
-            this.listBox_Collecitons.Name = "listBox_Collecitons";
-            this.listBox_Collecitons.Size = new System.Drawing.Size(427, 345);
-            this.listBox_Collecitons.TabIndex = 9;
+            this.listBox_Friends.FormattingEnabled = true;
+            this.listBox_Friends.ItemHeight = 31;
+            this.listBox_Friends.Location = new System.Drawing.Point(13, 84);
+            this.listBox_Friends.Name = "listBox_Friends";
+            this.listBox_Friends.Size = new System.Drawing.Size(427, 345);
+            this.listBox_Friends.TabIndex = 9;
+            this.listBox_Friends.SelectedIndexChanged += new System.EventHandler(this.listBox_Friends_SelectedIndexChanged);
             // 
             // textBox_LastName
             // 
             this.textBox_LastName.Enabled = false;
-            this.textBox_LastName.Location = new System.Drawing.Point(199, 151);
+            this.textBox_LastName.Location = new System.Drawing.Point(484, 151);
             this.textBox_LastName.Name = "textBox_LastName";
             this.textBox_LastName.Size = new System.Drawing.Size(341, 38);
             this.textBox_LastName.TabIndex = 2;
@@ -67,7 +86,7 @@
             // textBox_FirstName
             // 
             this.textBox_FirstName.Enabled = false;
-            this.textBox_FirstName.Location = new System.Drawing.Point(199, 82);
+            this.textBox_FirstName.Location = new System.Drawing.Point(484, 82);
             this.textBox_FirstName.Name = "textBox_FirstName";
             this.textBox_FirstName.Size = new System.Drawing.Size(341, 38);
             this.textBox_FirstName.TabIndex = 3;
@@ -75,7 +94,7 @@
             // label_FirstName
             // 
             this.label_FirstName.AutoSize = true;
-            this.label_FirstName.Location = new System.Drawing.Point(18, 82);
+            this.label_FirstName.Location = new System.Drawing.Point(303, 82);
             this.label_FirstName.Name = "label_FirstName";
             this.label_FirstName.Size = new System.Drawing.Size(160, 32);
             this.label_FirstName.TabIndex = 4;
@@ -83,7 +102,7 @@
             // 
             // pictureBox_ProfilePicture
             // 
-            this.pictureBox_ProfilePicture.Location = new System.Drawing.Point(578, 41);
+            this.pictureBox_ProfilePicture.Location = new System.Drawing.Point(951, 43);
             this.pictureBox_ProfilePicture.Name = "pictureBox_ProfilePicture";
             this.pictureBox_ProfilePicture.Size = new System.Drawing.Size(283, 272);
             this.pictureBox_ProfilePicture.TabIndex = 1;
@@ -92,7 +111,7 @@
             // label_LastName
             // 
             this.label_LastName.AutoSize = true;
-            this.label_LastName.Location = new System.Drawing.Point(18, 151);
+            this.label_LastName.Location = new System.Drawing.Point(303, 151);
             this.label_LastName.Name = "label_LastName";
             this.label_LastName.Size = new System.Drawing.Size(159, 32);
             this.label_LastName.TabIndex = 5;
@@ -128,7 +147,7 @@
             // label_email
             // 
             this.label_email.AutoSize = true;
-            this.label_email.Location = new System.Drawing.Point(18, 215);
+            this.label_email.Location = new System.Drawing.Point(303, 215);
             this.label_email.Name = "label_email";
             this.label_email.Size = new System.Drawing.Size(95, 32);
             this.label_email.TabIndex = 11;
@@ -137,7 +156,7 @@
             // textBox_email
             // 
             this.textBox_email.Enabled = false;
-            this.textBox_email.Location = new System.Drawing.Point(199, 215);
+            this.textBox_email.Location = new System.Drawing.Point(484, 215);
             this.textBox_email.Name = "textBox_email";
             this.textBox_email.Size = new System.Drawing.Size(341, 38);
             this.textBox_email.TabIndex = 10;
@@ -151,9 +170,9 @@
             this.groupBox_Details.Controls.Add(this.textBox_LastName);
             this.groupBox_Details.Controls.Add(this.label_LastName);
             this.groupBox_Details.Controls.Add(this.pictureBox_ProfilePicture);
-            this.groupBox_Details.Location = new System.Drawing.Point(45, 12);
+            this.groupBox_Details.Location = new System.Drawing.Point(12, 12);
             this.groupBox_Details.Name = "groupBox_Details";
-            this.groupBox_Details.Size = new System.Drawing.Size(897, 334);
+            this.groupBox_Details.Size = new System.Drawing.Size(1734, 334);
             this.groupBox_Details.TabIndex = 12;
             this.groupBox_Details.TabStop = false;
             this.groupBox_Details.Text = "Details";
@@ -170,19 +189,161 @@
             // 
             // panel_friends
             // 
-            this.panel_friends.Controls.Add(this.listBox_Collecitons);
+            this.panel_friends.Controls.Add(this.listBox_Friends);
             this.panel_friends.Controls.Add(this.label_Friends);
             this.panel_friends.Location = new System.Drawing.Point(57, 373);
             this.panel_friends.Name = "panel_friends";
-            this.panel_friends.Size = new System.Drawing.Size(449, 444);
+            this.panel_friends.Size = new System.Drawing.Size(456, 444);
             this.panel_friends.TabIndex = 14;
             this.panel_friends.Visible = false;
+            // 
+            // panel_friendDetails
+            // 
+            this.panel_friendDetails.Controls.Add(this.pictureBox_friend);
+            this.panel_friendDetails.Controls.Add(this.label_friendLastName);
+            this.panel_friendDetails.Controls.Add(this.label_friendFirstName);
+            this.panel_friendDetails.Controls.Add(this.textBox_friendEmail);
+            this.panel_friendDetails.Controls.Add(this.textBox_friendFIrstName);
+            this.panel_friendDetails.Controls.Add(this.label_friendEmail);
+            this.panel_friendDetails.Controls.Add(this.textBox_friendLastName);
+            this.panel_friendDetails.Location = new System.Drawing.Point(554, 457);
+            this.panel_friendDetails.Name = "panel_friendDetails";
+            this.panel_friendDetails.Size = new System.Drawing.Size(585, 345);
+            this.panel_friendDetails.TabIndex = 18;
+            this.panel_friendDetails.Visible = false;
+            // 
+            // pictureBox_friend
+            // 
+            this.pictureBox_friend.Location = new System.Drawing.Point(215, 3);
+            this.pictureBox_friend.Name = "pictureBox_friend";
+            this.pictureBox_friend.Size = new System.Drawing.Size(153, 141);
+            this.pictureBox_friend.TabIndex = 18;
+            this.pictureBox_friend.TabStop = false;
+            // 
+            // label_friendLastName
+            // 
+            this.label_friendLastName.AutoSize = true;
+            this.label_friendLastName.Location = new System.Drawing.Point(21, 231);
+            this.label_friendLastName.Name = "label_friendLastName";
+            this.label_friendLastName.Size = new System.Drawing.Size(159, 32);
+            this.label_friendLastName.TabIndex = 15;
+            this.label_friendLastName.Text = "Last Name:";
+            // 
+            // label_friendFirstName
+            // 
+            this.label_friendFirstName.AutoSize = true;
+            this.label_friendFirstName.Location = new System.Drawing.Point(21, 162);
+            this.label_friendFirstName.Name = "label_friendFirstName";
+            this.label_friendFirstName.Size = new System.Drawing.Size(160, 32);
+            this.label_friendFirstName.TabIndex = 14;
+            this.label_friendFirstName.Text = "First Name:";
+            // 
+            // textBox_friendEmail
+            // 
+            this.textBox_friendEmail.Enabled = false;
+            this.textBox_friendEmail.Location = new System.Drawing.Point(202, 295);
+            this.textBox_friendEmail.Name = "textBox_friendEmail";
+            this.textBox_friendEmail.Size = new System.Drawing.Size(341, 38);
+            this.textBox_friendEmail.TabIndex = 16;
+            // 
+            // textBox_friendFIrstName
+            // 
+            this.textBox_friendFIrstName.Enabled = false;
+            this.textBox_friendFIrstName.Location = new System.Drawing.Point(202, 162);
+            this.textBox_friendFIrstName.Name = "textBox_friendFIrstName";
+            this.textBox_friendFIrstName.Size = new System.Drawing.Size(341, 38);
+            this.textBox_friendFIrstName.TabIndex = 13;
+            // 
+            // label_friendEmail
+            // 
+            this.label_friendEmail.AutoSize = true;
+            this.label_friendEmail.Location = new System.Drawing.Point(21, 295);
+            this.label_friendEmail.Name = "label_friendEmail";
+            this.label_friendEmail.Size = new System.Drawing.Size(95, 32);
+            this.label_friendEmail.TabIndex = 17;
+            this.label_friendEmail.Text = "Email:";
+            // 
+            // textBox_friendLastName
+            // 
+            this.textBox_friendLastName.Enabled = false;
+            this.textBox_friendLastName.Location = new System.Drawing.Point(202, 231);
+            this.textBox_friendLastName.Name = "textBox_friendLastName";
+            this.textBox_friendLastName.Size = new System.Drawing.Size(341, 38);
+            this.textBox_friendLastName.TabIndex = 12;
+            // 
+            // panel_events
+            // 
+            this.panel_events.Controls.Add(this.label_endDate);
+            this.panel_events.Controls.Add(this.label_startDate);
+            this.panel_events.Controls.Add(this.dateTimePicker_endDate);
+            this.panel_events.Controls.Add(this.dateTimePicker_startDate);
+            this.panel_events.Controls.Add(this.listBox_Events);
+            this.panel_events.Controls.Add(this.label_Events);
+            this.panel_events.Location = new System.Drawing.Point(57, 897);
+            this.panel_events.Name = "panel_events";
+            this.panel_events.Size = new System.Drawing.Size(1069, 444);
+            this.panel_events.TabIndex = 15;
+            this.panel_events.Visible = false;
+            // 
+            // label_endDate
+            // 
+            this.label_endDate.AutoSize = true;
+            this.label_endDate.Location = new System.Drawing.Point(529, 231);
+            this.label_endDate.Name = "label_endDate";
+            this.label_endDate.Size = new System.Drawing.Size(141, 32);
+            this.label_endDate.TabIndex = 17;
+            this.label_endDate.Text = "End Date:";
+            // 
+            // label_startDate
+            // 
+            this.label_startDate.AutoSize = true;
+            this.label_startDate.Location = new System.Drawing.Point(529, 84);
+            this.label_startDate.Name = "label_startDate";
+            this.label_startDate.Size = new System.Drawing.Size(150, 32);
+            this.label_startDate.TabIndex = 16;
+            this.label_startDate.Text = "Start Date:";
+            // 
+            // dateTimePicker_endDate
+            // 
+            this.dateTimePicker_endDate.Location = new System.Drawing.Point(535, 279);
+            this.dateTimePicker_endDate.Name = "dateTimePicker_endDate";
+            this.dateTimePicker_endDate.Size = new System.Drawing.Size(516, 38);
+            this.dateTimePicker_endDate.TabIndex = 15;
+            this.dateTimePicker_endDate.ValueChanged += new System.EventHandler(this.dateTimePicker_endDate_ValueChanged);
+            // 
+            // dateTimePicker_startDate
+            // 
+            this.dateTimePicker_startDate.Location = new System.Drawing.Point(535, 136);
+            this.dateTimePicker_startDate.Name = "dateTimePicker_startDate";
+            this.dateTimePicker_startDate.Size = new System.Drawing.Size(516, 38);
+            this.dateTimePicker_startDate.TabIndex = 14;
+            this.dateTimePicker_startDate.ValueChanged += new System.EventHandler(this.dateTimePicker_startDate_ValueChanged);
+            // 
+            // listBox_Events
+            // 
+            this.listBox_Events.FormattingEnabled = true;
+            this.listBox_Events.ItemHeight = 31;
+            this.listBox_Events.Location = new System.Drawing.Point(13, 84);
+            this.listBox_Events.Name = "listBox_Events";
+            this.listBox_Events.Size = new System.Drawing.Size(427, 345);
+            this.listBox_Events.TabIndex = 9;
+            // 
+            // label_Events
+            // 
+            this.label_Events.AutoSize = true;
+            this.label_Events.Location = new System.Drawing.Point(7, 26);
+            this.label_Events.Name = "label_Events";
+            this.label_Events.Size = new System.Drawing.Size(110, 32);
+            this.label_Events.TabIndex = 13;
+            this.label_Events.Text = "Events:";
             // 
             // Form_FacebookApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1048, 1748);
+            this.ClientSize = new System.Drawing.Size(1758, 1437);
+            this.Controls.Add(this.panel_friendDetails);
+            this.Controls.Add(this.panel_events);
             this.Controls.Add(this.panel_friends);
             this.Controls.Add(this.groupBox_Details);
             this.Controls.Add(this.label_AppID);
@@ -196,13 +357,18 @@
             this.groupBox_Details.PerformLayout();
             this.panel_friends.ResumeLayout(false);
             this.panel_friends.PerformLayout();
+            this.panel_friendDetails.ResumeLayout(false);
+            this.panel_friendDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_friend)).EndInit();
+            this.panel_events.ResumeLayout(false);
+            this.panel_events.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.ListBox listBox_Collecitons;
+        private System.Windows.Forms.ListBox listBox_Friends;
         private System.Windows.Forms.TextBox textBox_LastName;
         private System.Windows.Forms.TextBox textBox_FirstName;
         private System.Windows.Forms.Label label_FirstName;
@@ -216,6 +382,21 @@
         private System.Windows.Forms.GroupBox groupBox_Details;
         private System.Windows.Forms.Label label_Friends;
         private System.Windows.Forms.Panel panel_friends;
+        private System.Windows.Forms.Panel panel_events;
+        private System.Windows.Forms.ListBox listBox_Events;
+        private System.Windows.Forms.Label label_Events;
+        private System.Windows.Forms.Label label_endDate;
+        private System.Windows.Forms.Label label_startDate;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_endDate;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_startDate;
+        private System.Windows.Forms.Panel panel_friendDetails;
+        private System.Windows.Forms.Label label_friendLastName;
+        private System.Windows.Forms.Label label_friendFirstName;
+        private System.Windows.Forms.TextBox textBox_friendEmail;
+        private System.Windows.Forms.TextBox textBox_friendFIrstName;
+        private System.Windows.Forms.Label label_friendEmail;
+        private System.Windows.Forms.TextBox textBox_friendLastName;
+        private System.Windows.Forms.PictureBox pictureBox_friend;
     }
 }
 

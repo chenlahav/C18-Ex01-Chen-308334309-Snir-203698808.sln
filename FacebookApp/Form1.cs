@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Facebook;
 using FacebookWrapper;
+using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp
 {
     public partial class Form_FacebookApp : Form
     {
-        private FacebookWrapper.ObjectModel.User m_LoggedInUser;
+        private User m_LoggedInUser;
         public Form_FacebookApp()
         {
             InitializeComponent();
@@ -26,13 +27,13 @@ namespace FacebookApp
             string appID = comboBox_AppID.Text;
             LoginResult result = FacebookService.Login(appID, "email","user_friends");
             m_LoggedInUser = result.LoggedInUser;
-            string a = m_LoggedInUser.ToString();
             pictureBox_ProfilePicture.LoadAsync(m_LoggedInUser.PictureNormalURL);
             textBox_FirstName.Text = m_LoggedInUser.FirstName;
             textBox_LastName.Text = m_LoggedInUser.LastName;
             textBox_email.Text = m_LoggedInUser.Email;
             visibleElements();
             initFriendList();
+            initEventsList();
 
         }
 
@@ -43,6 +44,7 @@ namespace FacebookApp
             buttonLogin.Visible = false;
             groupBox_Details.Visible = true;
             panel_friends.Visible = true;
+            panel_events.Visible = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -56,14 +58,51 @@ namespace FacebookApp
         {
             if (m_LoggedInUser.Friends != null)
             {
-                listBox_Collecitons.Items.Clear();
-                foreach (var friend in m_LoggedInUser.Friends)
+                listBox_Friends.Items.Clear();
+                listBox_Friends.DisplayMember = "FirstName";
+                foreach (User friend in m_LoggedInUser.Friends)
                 {
-                    listBox_Collecitons.Items.Add(string.Format(friend.FirstName + " " + friend.LastName));
+                    listBox_Friends.Items.Add(friend);
                 }
 
             }
         }
 
+        private void initEventsList()
+        {
+            if (m_LoggedInUser.Events != null)
+            {
+                listBox_Events.Items.Clear();
+                foreach (var FBevent in m_LoggedInUser.Events)
+                {
+                    if((FBevent.StartTime >= dateTimePicker_startDate.Value) 
+                        && (FBevent.EndTime <= dateTimePicker_endDate.Value))
+                    {
+                        listBox_Events.Items.Add(string.Format(FBevent.Name));
+                    }
+                }
+
+            }
+        }
+
+        private void dateTimePicker_startDate_ValueChanged(object sender, EventArgs e)
+        {
+            initEventsList();
+        }
+
+        private void dateTimePicker_endDate_ValueChanged(object sender, EventArgs e)
+        {
+            initEventsList();
+        }
+
+        private void listBox_Friends_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            User selectedFriend = listBox_Friends.SelectedItem as User;
+            textBox_friendFIrstName.Text = selectedFriend.FirstName;
+            textBox_friendLastName.Text = selectedFriend.LastName;
+            textBox_friendEmail.Text = selectedFriend.Email;
+            pictureBox_friend.LoadAsync(selectedFriend.PictureSmallURL);
+            panel_friendDetails.Visible = true;
+        }
     }
 }
