@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_FacebookApp));
             this.listBox_Friends = new System.Windows.Forms.ListBox();
             this.textBox_LastName = new System.Windows.Forms.TextBox();
             this.textBox_FirstName = new System.Windows.Forms.TextBox();
@@ -40,9 +41,11 @@
             this.label_email = new System.Windows.Forms.Label();
             this.textBox_email = new System.Windows.Forms.TextBox();
             this.groupBox_Details = new System.Windows.Forms.GroupBox();
+            this.pictureBox_myBirthday = new System.Windows.Forms.PictureBox();
             this.label_Friends = new System.Windows.Forms.Label();
             this.panel_friends = new System.Windows.Forms.Panel();
             this.panel_friendDetails = new System.Windows.Forms.Panel();
+            this.pictureBox_birthday = new System.Windows.Forms.PictureBox();
             this.pictureBox_friend = new System.Windows.Forms.PictureBox();
             this.label_friendLastName = new System.Windows.Forms.Label();
             this.label_friendFirstName = new System.Windows.Forms.Label();
@@ -52,19 +55,21 @@
             this.listBox_Events = new System.Windows.Forms.ListBox();
             this.label_Events = new System.Windows.Forms.Label();
             this.panel_eventDetails = new System.Windows.Forms.Panel();
+            this.textBox_eventDate = new System.Windows.Forms.TextBox();
+            this.label_eventDate = new System.Windows.Forms.Label();
+            this.textBox_eventLocation = new System.Windows.Forms.TextBox();
+            this.label_eventLocation = new System.Windows.Forms.Label();
             this.pictureBox_event = new System.Windows.Forms.PictureBox();
             this.label_event_description = new System.Windows.Forms.Label();
             this.label_eventName = new System.Windows.Forms.Label();
             this.textBox_eventName = new System.Windows.Forms.TextBox();
             this.textBox_eventDescription = new System.Windows.Forms.TextBox();
-            this.label_eventLocation = new System.Windows.Forms.Label();
-            this.textBox_eventLocation = new System.Windows.Forms.TextBox();
-            this.label_eventDate = new System.Windows.Forms.Label();
-            this.dateTimePicker_eventDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ProfilePicture)).BeginInit();
             this.groupBox_Details.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_myBirthday)).BeginInit();
             this.panel_friends.SuspendLayout();
             this.panel_friendDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_birthday)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_friend)).BeginInit();
             this.panel_events.SuspendLayout();
             this.panel_eventDetails.SuspendLayout();
@@ -169,6 +174,7 @@
             // 
             // groupBox_Details
             // 
+            this.groupBox_Details.Controls.Add(this.pictureBox_myBirthday);
             this.groupBox_Details.Controls.Add(this.textBox_email);
             this.groupBox_Details.Controls.Add(this.label_email);
             this.groupBox_Details.Controls.Add(this.textBox_FirstName);
@@ -183,6 +189,17 @@
             this.groupBox_Details.TabStop = false;
             this.groupBox_Details.Text = "Details";
             this.groupBox_Details.Visible = false;
+            // 
+            // pictureBox_myBirthday
+            // 
+            this.pictureBox_myBirthday.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_myBirthday.Image")));
+            this.pictureBox_myBirthday.Location = new System.Drawing.Point(58, 43);
+            this.pictureBox_myBirthday.Name = "pictureBox_myBirthday";
+            this.pictureBox_myBirthday.Size = new System.Drawing.Size(155, 272);
+            this.pictureBox_myBirthday.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_myBirthday.TabIndex = 12;
+            this.pictureBox_myBirthday.TabStop = false;
+            this.pictureBox_myBirthday.Visible = false;
             // 
             // label_Friends
             // 
@@ -205,6 +222,7 @@
             // 
             // panel_friendDetails
             // 
+            this.panel_friendDetails.Controls.Add(this.pictureBox_birthday);
             this.panel_friendDetails.Controls.Add(this.pictureBox_friend);
             this.panel_friendDetails.Controls.Add(this.label_friendLastName);
             this.panel_friendDetails.Controls.Add(this.label_friendFirstName);
@@ -215,6 +233,17 @@
             this.panel_friendDetails.Size = new System.Drawing.Size(585, 345);
             this.panel_friendDetails.TabIndex = 18;
             this.panel_friendDetails.Visible = false;
+            // 
+            // pictureBox_birthday
+            // 
+            this.pictureBox_birthday.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_birthday.Image")));
+            this.pictureBox_birthday.Location = new System.Drawing.Point(409, 21);
+            this.pictureBox_birthday.Name = "pictureBox_birthday";
+            this.pictureBox_birthday.Size = new System.Drawing.Size(104, 141);
+            this.pictureBox_birthday.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_birthday.TabIndex = 19;
+            this.pictureBox_birthday.TabStop = false;
+            this.pictureBox_birthday.Visible = false;
             // 
             // pictureBox_friend
             // 
@@ -289,7 +318,7 @@
             // 
             // panel_eventDetails
             // 
-            this.panel_eventDetails.Controls.Add(this.dateTimePicker_eventDate);
+            this.panel_eventDetails.Controls.Add(this.textBox_eventDate);
             this.panel_eventDetails.Controls.Add(this.label_eventDate);
             this.panel_eventDetails.Controls.Add(this.textBox_eventLocation);
             this.panel_eventDetails.Controls.Add(this.label_eventLocation);
@@ -303,6 +332,40 @@
             this.panel_eventDetails.Size = new System.Drawing.Size(712, 444);
             this.panel_eventDetails.TabIndex = 19;
             this.panel_eventDetails.Visible = false;
+            // 
+            // textBox_eventDate
+            // 
+            this.textBox_eventDate.Enabled = false;
+            this.textBox_eventDate.Location = new System.Drawing.Point(204, 391);
+            this.textBox_eventDate.Name = "textBox_eventDate";
+            this.textBox_eventDate.Size = new System.Drawing.Size(492, 38);
+            this.textBox_eventDate.TabIndex = 22;
+            // 
+            // label_eventDate
+            // 
+            this.label_eventDate.AutoSize = true;
+            this.label_eventDate.Location = new System.Drawing.Point(22, 397);
+            this.label_eventDate.Name = "label_eventDate";
+            this.label_eventDate.Size = new System.Drawing.Size(83, 32);
+            this.label_eventDate.TabIndex = 21;
+            this.label_eventDate.Text = "Date:";
+            // 
+            // textBox_eventLocation
+            // 
+            this.textBox_eventLocation.Enabled = false;
+            this.textBox_eventLocation.Location = new System.Drawing.Point(203, 334);
+            this.textBox_eventLocation.Name = "textBox_eventLocation";
+            this.textBox_eventLocation.Size = new System.Drawing.Size(492, 38);
+            this.textBox_eventLocation.TabIndex = 20;
+            // 
+            // label_eventLocation
+            // 
+            this.label_eventLocation.AutoSize = true;
+            this.label_eventLocation.Location = new System.Drawing.Point(22, 334);
+            this.label_eventLocation.Name = "label_eventLocation";
+            this.label_eventLocation.Size = new System.Drawing.Size(132, 32);
+            this.label_eventLocation.TabIndex = 19;
+            this.label_eventLocation.Text = "Location:";
             // 
             // pictureBox_event
             // 
@@ -346,40 +409,6 @@
             this.textBox_eventDescription.Size = new System.Drawing.Size(492, 38);
             this.textBox_eventDescription.TabIndex = 12;
             // 
-            // label_eventLocation
-            // 
-            this.label_eventLocation.AutoSize = true;
-            this.label_eventLocation.Location = new System.Drawing.Point(22, 334);
-            this.label_eventLocation.Name = "label_eventLocation";
-            this.label_eventLocation.Size = new System.Drawing.Size(132, 32);
-            this.label_eventLocation.TabIndex = 19;
-            this.label_eventLocation.Text = "Location:";
-            // 
-            // textBox_eventLocation
-            // 
-            this.textBox_eventLocation.Enabled = false;
-            this.textBox_eventLocation.Location = new System.Drawing.Point(203, 334);
-            this.textBox_eventLocation.Name = "textBox_eventLocation";
-            this.textBox_eventLocation.Size = new System.Drawing.Size(492, 38);
-            this.textBox_eventLocation.TabIndex = 20;
-            // 
-            // label_eventDate
-            // 
-            this.label_eventDate.AutoSize = true;
-            this.label_eventDate.Location = new System.Drawing.Point(22, 397);
-            this.label_eventDate.Name = "label_eventDate";
-            this.label_eventDate.Size = new System.Drawing.Size(83, 32);
-            this.label_eventDate.TabIndex = 21;
-            this.label_eventDate.Text = "Date:";
-            // 
-            // dateTimePicker_eventDate
-            // 
-            this.dateTimePicker_eventDate.Enabled = false;
-            this.dateTimePicker_eventDate.Location = new System.Drawing.Point(203, 397);
-            this.dateTimePicker_eventDate.Name = "dateTimePicker_eventDate";
-            this.dateTimePicker_eventDate.Size = new System.Drawing.Size(492, 38);
-            this.dateTimePicker_eventDate.TabIndex = 22;
-            // 
             // Form_FacebookApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -395,14 +424,17 @@
             this.Controls.Add(this.buttonLogin);
             this.Name = "Form_FacebookApp";
             this.Text = "FacebookApp";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_FacebookApp_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ProfilePicture)).EndInit();
             this.groupBox_Details.ResumeLayout(false);
             this.groupBox_Details.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_myBirthday)).EndInit();
             this.panel_friends.ResumeLayout(false);
             this.panel_friends.PerformLayout();
             this.panel_friendDetails.ResumeLayout(false);
             this.panel_friendDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_birthday)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_friend)).EndInit();
             this.panel_events.ResumeLayout(false);
             this.panel_events.PerformLayout();
@@ -439,7 +471,6 @@
         private System.Windows.Forms.TextBox textBox_friendLastName;
         private System.Windows.Forms.PictureBox pictureBox_friend;
         private System.Windows.Forms.Panel panel_eventDetails;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_eventDate;
         private System.Windows.Forms.Label label_eventDate;
         private System.Windows.Forms.TextBox textBox_eventLocation;
         private System.Windows.Forms.Label label_eventLocation;
@@ -448,6 +479,9 @@
         private System.Windows.Forms.Label label_eventName;
         private System.Windows.Forms.TextBox textBox_eventName;
         private System.Windows.Forms.TextBox textBox_eventDescription;
+        private System.Windows.Forms.TextBox textBox_eventDate;
+        private System.Windows.Forms.PictureBox pictureBox_birthday;
+        private System.Windows.Forms.PictureBox pictureBox_myBirthday;
     }
 }
 
