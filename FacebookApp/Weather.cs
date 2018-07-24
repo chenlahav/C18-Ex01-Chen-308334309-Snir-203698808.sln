@@ -24,8 +24,7 @@ namespace FacebookApp
 
             string Temp = doc.DocumentElement.SelectSingleNode("temperature").Attributes["value"].Value;
             double temp = double.Parse(Temp) - 273.16;
-
-            weather.m_Temperature = temp.ToString();
+            weather.m_Temperature =string.Format("{0:0.00}", temp);
 
             string Humidity = doc.DocumentElement.SelectSingleNode("humidity").Attributes["value"].Value;
             weather.m_humidity = Humidity;
