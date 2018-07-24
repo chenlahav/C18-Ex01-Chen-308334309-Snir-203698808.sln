@@ -18,7 +18,7 @@ namespace FacebookApp
         public Form_FacebookApp()
         {
             InitializeComponent();
-            this.ClientSize = new System.Drawing.Size(500, 600);
+            this.ClientSize = new System.Drawing.Size(650, 600);
             this.CenterToScreen();
         }
 
@@ -67,6 +67,7 @@ namespace FacebookApp
         {
             comboBox_AppID.Items.Add("272862089537667");
             comboBox_AppID.Items.Add("1430451463721328");
+            comboBox_AppID.Items.Add("1450160541956417");
             comboBox_AppID.SelectedIndex = 1;
         }
 
@@ -146,6 +147,21 @@ namespace FacebookApp
                 
                 textBox_Temp.Text = weather.m_Temperature;
                 textBox_humidity.Text = weather.m_humidity;
+
+                double temperature = double.Parse(textBox_Temp.Text);
+
+                if (temperature <= 0)
+                {
+                    pictureBox_whether.ImageLocation = "..\\..\\Resources\\rainy.png";
+                }
+                else if(temperature > 0 && temperature <= 20)
+                {
+                    pictureBox_whether.ImageLocation = "..\\..\\Resources\\cloudy.png";
+                }
+                else
+                {
+                    pictureBox_whether.ImageLocation = "..\\..\\Resources\\sun.png";
+                }
 
                 panel_eventDetails.Visible = true;
             }

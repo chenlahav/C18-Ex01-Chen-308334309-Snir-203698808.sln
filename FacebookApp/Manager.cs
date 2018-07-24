@@ -20,7 +20,15 @@ namespace FacebookApp
             try
             {
                 LoginResult result = FacebookService.Login(i_AppID,
-                    "email", "user_friends", "user_events", "user_location", "user_birthday", "manage_pages", "publish_pages");
+                    "email",
+                    "public_profile",
+                    "user_friends",
+                    "user_events",
+                    "user_location",
+                    "user_birthday",
+                    "manage_pages",
+                    "publish_pages",
+                    "user_photos");
                 if(result != null)
                 {
                     m_LoggedInUser = result.LoggedInUser;
@@ -53,6 +61,11 @@ namespace FacebookApp
                 o_FriendsList.Add(friend);
             }
             return o_FriendsList;
+        }
+
+        public static string GetCoverPhoto()
+        {
+            return m_LoggedInUser.Cover.SourceURL;
         }
 
         public static string GetUserBirthday()

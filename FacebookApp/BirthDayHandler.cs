@@ -28,7 +28,6 @@ namespace FacebookApp
 
         public static bool isUserBirthdayToday(string i_UserBirthday)
         {
-            return true;
            bool isBirthdayToday;
             DateTime parsedBirthDateFriend = DateTime.Parse(i_UserBirthday);
             DateTime timeNow = DateTime.Now;
