@@ -141,7 +141,11 @@ namespace FacebookApp
                 textBox_eventDate.Text = selectedEvent.TimeString;
                 pictureBox_event.LoadAsync(selectedEvent.PictureSmallURL);
 
-                textBox_Temp.Text =  (Weather.GetTemp(textBox_eventLocation.Text).ToString() );
+                string cityName = textBox_eventLocation.Text;
+                CityWeather weather = Weather.GetWeather(cityName);
+                
+                textBox_Temp.Text = weather.m_Temperature;
+                textBox_humidity.Text = weather.m_humidity;
 
                 panel_eventDetails.Visible = true;
             }
