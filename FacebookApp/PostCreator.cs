@@ -9,7 +9,7 @@ namespace FacebookApp
 {
     static class PostCreator
     {
-        public static void CreatePostHappyBirthday(User i_friendBirthday)
+        public static void CreateHappyBirthdayPost(User i_friendBirthday)
         {
             string textToPost= $"Happy Birthday {i_friendBirthday.FirstName}!!!";
 

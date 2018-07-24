@@ -168,7 +168,7 @@ namespace FacebookApp
         private void button_PostHBD_Click(object sender, EventArgs e)
         {
             User SelectedFriend = listBox_Friends.SelectedItem as User;
-            PostCreator.CreatePostHappyBirthday(SelectedFriend);
+            PostCreator.CreateHappyBirthdayPost(SelectedFriend);
         }
     }
 }
