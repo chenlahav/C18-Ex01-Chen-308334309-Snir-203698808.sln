@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BirthdayHandler.cs" />
+    <Compile Include="CityWeather.cs" />
     <Compile Include="PostCreator.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
