@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FacebookApp
 {
@@ -18,7 +19,8 @@ namespace FacebookApp
             bool o_IsSuccessToLogin;
             try
             {
-                LoginResult result = FacebookService.Login(i_AppID, "email", "user_friends", "user_events", "user_location", "user_birthday");
+                LoginResult result = FacebookService.Login(i_AppID,
+                    "email", "user_friends", "user_events", "user_location", "user_birthday", "manage_pages", "publish_pages");
                 if(result != null)
                 {
                     m_LoggedInUser = result.LoggedInUser;
@@ -98,10 +100,26 @@ namespace FacebookApp
             return o_URLPicture;
         }
 
-        public static void Post(string i_PostText)
+        public static void Post(string i_PostText, User i_UserToTag = null)
         {
-            Status postStatus = m_LoggedInUser.PostStatus(i_PostText);
-            //TODO : CHECK IF SUCSSES
+            string idToTag;
+            if (i_UserToTag != null)
+            {
+                idToTag = i_UserToTag.Id;
+            }
+            else
+            {
+                idToTag = null;
+            }
+            try
+            {
+                Status postStatus = m_LoggedInUser.PostStatus(i_PostText,i_TaggedFriendIDs: idToTag);
+                MessageBox.Show($"Status Posted! ID: {postStatus.Id}");
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Post Failed");
+            }
         }
     }
 }

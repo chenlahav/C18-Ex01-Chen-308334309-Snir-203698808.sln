@@ -11,7 +11,9 @@ namespace FacebookApp
     {
         public static void CreatePostHappyBirthday(User i_friendBirthday)
         {
-            Manager.Post($"Happy Birthday {i_friendBirthday.FirstName}!!!");
+            string textToPost= $"Happy Birthday {i_friendBirthday.FirstName}!!!";
+
+            Manager.Post($"Happy Birthday {i_friendBirthday.FirstName}!!!",i_friendBirthday);
         }
     }
 }

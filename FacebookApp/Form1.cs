@@ -38,6 +38,7 @@ namespace FacebookApp
                     if (BirthdayHandler.isUserBirthdayToday(Manager.GetUserBirthday()))
                     {
                         pictureBox_myBirthday.Visible = true;
+                        button_PostHBD.Visible = true;
                     }
                 }
                 catch
@@ -155,6 +156,12 @@ namespace FacebookApp
                 //do nothing
             }
             
+        }
+
+        private void button_PostHBD_Click(object sender, EventArgs e)
+        {
+            User SelectedFriend = listBox_Friends.SelectedItem as User;
+            PostCreator.CreatePostHappyBirthday(SelectedFriend);
         }
     }
 }
