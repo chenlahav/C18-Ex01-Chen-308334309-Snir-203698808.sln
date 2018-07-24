@@ -9,113 +9,151 @@ using System.Windows.Forms;
 
 namespace FacebookApp
 {
-    static class Manager
+    public class Manager : IDisposable
     {
+        private ConnectionService m_ConnectionService;
 
-        private static User m_LoggedInUser;
-
-        public static bool Login(string i_AppID)
+        public Manager(string i_AppID)
         {
-            bool o_IsSuccessToLogin;
-            try
+            m_ConnectionService = new ConnectionService(i_AppID);
+        }
+
+        public bool Login()
+        {
+            bool connectionSucsses;
+
+            if(m_ConnectionService.Login() != null)
             {
-                LoginResult result = FacebookService.Login(i_AppID,
-                    "email",
-                    "public_profile",
-                    "user_friends",
-                    "user_events",
-                    "user_location",
-                    "user_birthday",
-                    "manage_pages",
-                    "publish_pages",
-                    "user_photos");
-                if(result != null)
-                {
-                    m_LoggedInUser = result.LoggedInUser;
-                    o_IsSuccessToLogin = true;
-                }
-                else
-                {
-                    o_IsSuccessToLogin = false;
-                }
+                connectionSucsses = true;
             }
-            catch(Exception e)
+            else
             {
-                o_IsSuccessToLogin = false;
+                connectionSucsses = false;
             }
 
-            return o_IsSuccessToLogin;
+            return connectionSucsses;
         }
 
-        public static void Logout()
+        public List<User> GetAllFriends(User i_User = null)
         {
-            Login("1430451463721328");
-        }
-
-        public static List<User> GetAllFriends()
-        {
-            List<User> o_FriendsList = new List<User>();
-
-            foreach (User friend in m_LoggedInUser.Friends)
+            User user;
+            if(i_User == null)
             {
-                o_FriendsList.Add(friend);
+                user = m_ConnectionService.loggedInUser;
             }
-            return o_FriendsList;
-        }
-
-        public static string GetCoverPhoto()
-        {
-            return m_LoggedInUser.Cover.SourceURL;
-        }
-
-        public static string GetUserBirthday()
-        {
-            return m_LoggedInUser.Birthday;
-        }
-
-        public static List<Event> GetAllEvents()
-        {
-            List<Event> o_EventList = new List<Event>();
-
-            foreach (Event evnt in m_LoggedInUser.Events)
+            else
             {
-                o_EventList.Add(evnt);
+                user = i_User;
             }
 
-            return o_EventList;
+            return UserHandler.GetFriends(user);
         }
 
-        public static string GetFirstName()
+        public string GetUserBirthday(User i_User = null)
         {
-            string o_Name = null;
-            o_Name = m_LoggedInUser.FirstName;
-            return o_Name;
+            User user;
+            if (i_User == null)
+            {
+                user = m_ConnectionService.loggedInUser;
+            }
+            else
+            {
+                user = i_User;
+            }
+            return UserHandler.GetBirthday(user);
         }
 
-        public static string GetLastName()
+        public List<Event> GetAllEvents(User i_User = null)
         {
-            string o_LastName = null;
-            o_LastName = m_LoggedInUser.LastName;
-            return o_LastName ;
+            User user;
+            if (i_User == null)
+            {
+                user = m_ConnectionService.loggedInUser;
+            }
+            else
+            {
+                user = i_User;
+            }
+            return UserHandler.GetEvents(user);
         }
 
-        public static string GetEmail()
+        public string GetFirstName(User i_User = null)
         {
-            string o_Email = null;
-            o_Email = m_LoggedInUser.Email;
-            return o_Email;
+            User user;
+            if (i_User == null)
+            {
+                user = m_ConnectionService.loggedInUser;
+            }
+            else
+            {
+                user = i_User;
+            }
+            return UserHandler.GetName(user);
         }
 
-        public static string GetURLPicture()
+        public string GetLastName(User i_User = null)
         {
-            string o_URLPicture;
-            o_URLPicture = m_LoggedInUser.PictureNormalURL;
-            return o_URLPicture;
+            User user;
+            if (i_User == null)
+            {
+                user = m_ConnectionService.loggedInUser;
+            }
+            else
+            {
+                user = i_User;
+            }
+            return UserHandler.GetLastName(user);
         }
 
-        public static void Post(string i_PostText, User i_UserToTag = null)
+        public string GetEmail(User i_User = null)
         {
+            User user;
+            if (i_User == null)
+            {
+                user = m_ConnectionService.loggedInUser;
+            }
+            else
+            {
+                user = i_User;
+            }
+            return UserHandler.GetEmail(user);
+        }
+
+        public string GetURLNormalPicture(User i_User = null)
+        {
+            User user;
+            if (i_User == null)
+            {
+                user = m_ConnectionService.loggedInUser;
+            }
+            else
+            {
+                user = i_User;
+            }
+
+            return UserHandler.GetURLNormalPicture(user);
+        }
+
+        public string GetURLSmallPicture(User i_User = null)
+        {
+            User user;
+            if (i_User == null)
+            {
+                user = m_ConnectionService.loggedInUser;
+            }
+            else
+            {
+                user = i_User;
+            }
+
+            return UserHandler.GetURLSmallPicture(user);
+        }
+
+        public bool Post(string i_PostText, User i_User = null, User i_UserToTag = null)
+        {
+            bool postSucsses;
             string idToTag;
+            User user;
             if (i_UserToTag != null)
             {
                 idToTag = i_UserToTag.Id;
@@ -124,15 +162,32 @@ namespace FacebookApp
             {
                 idToTag = null;
             }
+
+            if (i_User == null)
+            {
+                user = m_ConnectionService.loggedInUser;
+            }
+            else
+            {
+                user = i_User;
+            }
+
             try
             {
-                Status postStatus = m_LoggedInUser.PostStatus(i_PostText,i_TaggedFriendIDs: idToTag);
-                MessageBox.Show($"Status Posted! ID: {postStatus.Id}");
+                user.PostStatus(i_PostText,i_TaggedFriendIDs: idToTag);
+                postSucsses = true;
             }
             catch(Exception e)
             {
-                MessageBox.Show("Post Failed");
+                postSucsses = false;
             }
+
+            return postSucsses;
+        }
+
+        public void Dispose()
+        {
+            m_ConnectionService.Logout();
         }
     }
 }

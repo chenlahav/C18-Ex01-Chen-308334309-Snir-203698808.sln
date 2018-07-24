@@ -9,13 +9,11 @@ namespace FacebookApp
 {
     static class BirthdayHandler
     {
-        private static List<User> m_UsersList;
-        public static List<User> getUserThatBirthdayOn(string i_BirthDay)
+        public static List<User> getUserThatBirthdayOn(List<User> i_AllFriends, string i_BirthDay)
         {
             List<User> o_UsersList = new List<User>();
-            m_UsersList = Manager.GetAllFriends();
 
-            foreach (User user in m_UsersList)
+            foreach (User user in i_AllFriends)
             {
                 if (user.Birthday.Equals(i_BirthDay))
                 {

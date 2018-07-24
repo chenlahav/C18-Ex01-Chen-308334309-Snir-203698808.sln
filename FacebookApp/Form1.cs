@@ -15,6 +15,8 @@ namespace FacebookApp
 {
     public partial class Form_FacebookApp : Form
     {
+        private Manager m_Manager;
+
         public Form_FacebookApp()
         {
             InitializeComponent();
@@ -24,18 +26,19 @@ namespace FacebookApp
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            if (Manager.Login(comboBox_AppID.Text))
+            m_Manager = new Manager(comboBox_AppID.Text);
+            if (m_Manager.Login())
             {
-                pictureBox_ProfilePicture.LoadAsync(Manager.GetURLPicture());
-                textBox_FirstName.Text = Manager.GetFirstName();
-                textBox_LastName.Text = Manager.GetLastName();
-                textBox_email.Text = Manager.GetEmail();
+                pictureBox_ProfilePicture.LoadAsync(m_Manager.GetURLNormalPicture());
+                textBox_FirstName.Text = m_Manager.GetFirstName();
+                textBox_LastName.Text = m_Manager.GetLastName();
+                textBox_email.Text = m_Manager.GetEmail();
                 visibleElements();
                 initFriendList();
                 initEventsList();
                 try
                 {
-                    if (BirthdayHandler.isUserBirthdayToday(Manager.GetUserBirthday()))
+                    if (BirthdayHandler.isUserBirthdayToday(m_Manager.GetUserBirthday()))
                     {
                         pictureBox_myBirthday.Visible = true;
                         button_PostHBD.Visible = true;
@@ -73,12 +76,12 @@ namespace FacebookApp
 
         private void initFriendList()
         {
-            if (Manager.GetAllFriends() != null)
+            if (m_Manager.GetAllFriends() != null)
             {
                 listBox_Friends.Items.Clear();
                 listBox_Friends.DisplayMember = "FirstName";
                
-                foreach (User friend in Manager.GetAllFriends())
+                foreach (User friend in m_Manager.GetAllFriends())
                 {
                     listBox_Friends.Items.Add(friend);
                 }
@@ -91,11 +94,11 @@ namespace FacebookApp
             try
             {
 
-                if (Manager.GetAllEvents() != null)
+                if (m_Manager.GetAllEvents() != null)
                 {
                     listBox_Events.Items.Clear();
                     listBox_Events.DisplayMember = "Name";
-                    foreach (Event FBevent in Manager.GetAllEvents())
+                    foreach (Event FBevent in m_Manager.GetAllEvents())
                     {
                         listBox_Events.Items.Add(FBevent);
                     }
@@ -113,13 +116,13 @@ namespace FacebookApp
             if(listBox_Friends.SelectedItem != null)
             {
                 User selectedFriend = listBox_Friends.SelectedItem as User;
-                textBox_friendFIrstName.Text = selectedFriend.FirstName;
-                textBox_friendLastName.Text = selectedFriend.LastName;
-                pictureBox_friend.LoadAsync(selectedFriend.PictureSmallURL);
+                textBox_friendFIrstName.Text = m_Manager.GetFirstName(selectedFriend);
+                textBox_friendLastName.Text = m_Manager.GetLastName(selectedFriend);
+                pictureBox_friend.LoadAsync(m_Manager.GetURLSmallPicture(selectedFriend));
                 panel_friendDetails.Visible = true;
                 try
                 {
-                    if (BirthdayHandler.isUserBirthdayToday(selectedFriend.Birthday))
+                    if (BirthdayHandler.isUserBirthdayToday(m_Manager.GetUserBirthday(selectedFriend)))
                     {
                         pictureBox_birthday.Visible = true;
                     }
@@ -169,7 +172,7 @@ namespace FacebookApp
 
         private void Form_FacebookApp_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Action action = Manager.Logout;
+            Action action = m_Manager.Dispose;
             try
             {
                 FacebookService.Logout(action);

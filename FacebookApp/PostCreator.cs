@@ -13,7 +13,7 @@ namespace FacebookApp
         {
             string textToPost= $"Happy Birthday {i_friendBirthday.FirstName}!!!";
 
-            Manager.Post($"Happy Birthday {i_friendBirthday.FirstName}!!!",i_friendBirthday);
+            //m_Manager.Post($"Happy Birthday {i_friendBirthday.FirstName}!!!",i_friendBirthday);
         }
     }
 }
