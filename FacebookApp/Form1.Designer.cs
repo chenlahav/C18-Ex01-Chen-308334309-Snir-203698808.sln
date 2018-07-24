@@ -56,6 +56,10 @@
             this.listBox_Events = new System.Windows.Forms.ListBox();
             this.label_Events = new System.Windows.Forms.Label();
             this.panel_eventDetails = new System.Windows.Forms.Panel();
+            this.textBox_humidity = new System.Windows.Forms.TextBox();
+            this.textBox_Temp = new System.Windows.Forms.TextBox();
+            this.label_temp = new System.Windows.Forms.Label();
+            this.label_humidity = new System.Windows.Forms.Label();
             this.textBox_eventDate = new System.Windows.Forms.TextBox();
             this.label_eventDate = new System.Windows.Forms.Label();
             this.textBox_eventLocation = new System.Windows.Forms.TextBox();
@@ -65,12 +69,8 @@
             this.label_eventName = new System.Windows.Forms.Label();
             this.textBox_eventName = new System.Windows.Forms.TextBox();
             this.textBox_eventDescription = new System.Windows.Forms.TextBox();
-            this.label_weather = new System.Windows.Forms.Label();
-            this.label_humidity = new System.Windows.Forms.Label();
-            this.label_temp = new System.Windows.Forms.Label();
-            this.textBox_Temp = new System.Windows.Forms.TextBox();
-            this.textBox_humidity = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ProfilePicture)).BeginInit();
             this.groupBox_Details.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_myBirthday)).BeginInit();
@@ -81,6 +81,8 @@
             this.panel_events.SuspendLayout();
             this.panel_eventDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_event)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox_Friends
@@ -191,7 +193,7 @@
             this.groupBox_Details.Controls.Add(this.pictureBox_ProfilePicture);
             this.groupBox_Details.Location = new System.Drawing.Point(12, 12);
             this.groupBox_Details.Name = "groupBox_Details";
-            this.groupBox_Details.Size = new System.Drawing.Size(1734, 334);
+            this.groupBox_Details.Size = new System.Drawing.Size(1555, 334);
             this.groupBox_Details.TabIndex = 12;
             this.groupBox_Details.TabStop = false;
             this.groupBox_Details.Text = "Details";
@@ -337,11 +339,7 @@
             // 
             // panel_eventDetails
             // 
-            this.panel_eventDetails.Controls.Add(this.textBox_humidity);
-            this.panel_eventDetails.Controls.Add(this.textBox_Temp);
-            this.panel_eventDetails.Controls.Add(this.label_temp);
-            this.panel_eventDetails.Controls.Add(this.label_humidity);
-            this.panel_eventDetails.Controls.Add(this.label_weather);
+            this.panel_eventDetails.Controls.Add(this.groupBox1);
             this.panel_eventDetails.Controls.Add(this.textBox_eventDate);
             this.panel_eventDetails.Controls.Add(this.label_eventDate);
             this.panel_eventDetails.Controls.Add(this.textBox_eventLocation);
@@ -351,12 +349,47 @@
             this.panel_eventDetails.Controls.Add(this.label_eventName);
             this.panel_eventDetails.Controls.Add(this.textBox_eventName);
             this.panel_eventDetails.Controls.Add(this.textBox_eventDescription);
-            this.panel_eventDetails.Controls.Add(this.panel1);
             this.panel_eventDetails.Location = new System.Drawing.Point(554, 897);
             this.panel_eventDetails.Name = "panel_eventDetails";
-            this.panel_eventDetails.Size = new System.Drawing.Size(1067, 444);
+            this.panel_eventDetails.Size = new System.Drawing.Size(1157, 509);
             this.panel_eventDetails.TabIndex = 19;
             this.panel_eventDetails.Visible = false;
+            // 
+            // textBox_humidity
+            // 
+            this.textBox_humidity.Enabled = false;
+            this.textBox_humidity.Location = new System.Drawing.Point(248, 246);
+            this.textBox_humidity.Name = "textBox_humidity";
+            this.textBox_humidity.Size = new System.Drawing.Size(112, 38);
+            this.textBox_humidity.TabIndex = 27;
+            this.textBox_humidity.Text = "None";
+            // 
+            // textBox_Temp
+            // 
+            this.textBox_Temp.Enabled = false;
+            this.textBox_Temp.Location = new System.Drawing.Point(248, 177);
+            this.textBox_Temp.Name = "textBox_Temp";
+            this.textBox_Temp.Size = new System.Drawing.Size(112, 38);
+            this.textBox_Temp.TabIndex = 26;
+            this.textBox_Temp.Text = "None";
+            // 
+            // label_temp
+            // 
+            this.label_temp.AutoSize = true;
+            this.label_temp.Location = new System.Drawing.Point(37, 177);
+            this.label_temp.Name = "label_temp";
+            this.label_temp.Size = new System.Drawing.Size(185, 32);
+            this.label_temp.TabIndex = 25;
+            this.label_temp.Text = "Temperature:";
+            // 
+            // label_humidity
+            // 
+            this.label_humidity.AutoSize = true;
+            this.label_humidity.Location = new System.Drawing.Point(37, 246);
+            this.label_humidity.Name = "label_humidity";
+            this.label_humidity.Size = new System.Drawing.Size(134, 32);
+            this.label_humidity.TabIndex = 24;
+            this.label_humidity.Text = "Humidity:";
             // 
             // textBox_eventDate
             // 
@@ -434,57 +467,27 @@
             this.textBox_eventDescription.Size = new System.Drawing.Size(492, 38);
             this.textBox_eventDescription.TabIndex = 12;
             // 
-            // label_weather
+            // groupBox1
             // 
-            this.label_weather.AutoSize = true;
-            this.label_weather.Location = new System.Drawing.Point(467, 26);
-            this.label_weather.Name = "label_weather";
-            this.label_weather.Size = new System.Drawing.Size(122, 32);
-            this.label_weather.TabIndex = 23;
-            this.label_weather.Text = "Weather";
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.label_temp);
+            this.groupBox1.Controls.Add(this.textBox_humidity);
+            this.groupBox1.Controls.Add(this.label_humidity);
+            this.groupBox1.Controls.Add(this.textBox_Temp);
+            this.groupBox1.Location = new System.Drawing.Point(723, 127);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(403, 316);
+            this.groupBox1.TabIndex = 29;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Weather";
             // 
-            // label_humidity
+            // pictureBox1
             // 
-            this.label_humidity.AutoSize = true;
-            this.label_humidity.Location = new System.Drawing.Point(449, 129);
-            this.label_humidity.Name = "label_humidity";
-            this.label_humidity.Size = new System.Drawing.Size(134, 32);
-            this.label_humidity.TabIndex = 24;
-            this.label_humidity.Text = "Humidity:";
-            // 
-            // label_temp
-            // 
-            this.label_temp.AutoSize = true;
-            this.label_temp.Location = new System.Drawing.Point(398, 74);
-            this.label_temp.Name = "label_temp";
-            this.label_temp.Size = new System.Drawing.Size(185, 32);
-            this.label_temp.TabIndex = 25;
-            this.label_temp.Text = "Temperature:";
-            // 
-            // textBox_Temp
-            // 
-            this.textBox_Temp.Enabled = false;
-            this.textBox_Temp.Location = new System.Drawing.Point(589, 74);
-            this.textBox_Temp.Name = "textBox_Temp";
-            this.textBox_Temp.Size = new System.Drawing.Size(112, 38);
-            this.textBox_Temp.TabIndex = 26;
-            this.textBox_Temp.Text = "None";
-            // 
-            // textBox_humidity
-            // 
-            this.textBox_humidity.Enabled = false;
-            this.textBox_humidity.Location = new System.Drawing.Point(589, 129);
-            this.textBox_humidity.Name = "textBox_humidity";
-            this.textBox_humidity.Size = new System.Drawing.Size(112, 38);
-            this.textBox_humidity.TabIndex = 27;
-            this.textBox_humidity.Text = "None";
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(393, 9);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(319, 175);
-            this.panel1.TabIndex = 28;
+            this.pictureBox1.Location = new System.Drawing.Point(147, 37);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(132, 126);
+            this.pictureBox1.TabIndex = 28;
+            this.pictureBox1.TabStop = false;
             // 
             // Form_FacebookApp
             // 
@@ -518,6 +521,9 @@
             this.panel_eventDetails.ResumeLayout(false);
             this.panel_eventDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_event)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -564,8 +570,8 @@
         private System.Windows.Forms.TextBox textBox_Temp;
         private System.Windows.Forms.Label label_temp;
         private System.Windows.Forms.Label label_humidity;
-        private System.Windows.Forms.Label label_weather;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

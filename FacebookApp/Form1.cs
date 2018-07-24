@@ -18,7 +18,7 @@ namespace FacebookApp
         public Form_FacebookApp()
         {
             InitializeComponent();
-            this.ClientSize = new System.Drawing.Size(500, 600);
+            this.ClientSize = new System.Drawing.Size(700, 600);
             this.CenterToScreen();
         }
 
