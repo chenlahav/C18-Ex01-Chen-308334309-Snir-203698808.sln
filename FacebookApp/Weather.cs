@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace weather_API_POC
+namespace FacebookApp
 {
-    static class  Wheather
+    public static class Weather
     {
         public static double GetTemp(string i_cityName)
         {

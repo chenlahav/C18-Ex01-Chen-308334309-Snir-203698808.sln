@@ -140,6 +140,9 @@ namespace FacebookApp
                 textBox_eventDescription.Text = selectedEvent.Description != null ? selectedEvent.Description : "";
                 textBox_eventDate.Text = selectedEvent.TimeString;
                 pictureBox_event.LoadAsync(selectedEvent.PictureSmallURL);
+
+                textBox_Temp.Text =  (Weather.GetTemp(textBox_eventLocation.Text).ToString() );
+
                 panel_eventDetails.Visible = true;
             }
         }
