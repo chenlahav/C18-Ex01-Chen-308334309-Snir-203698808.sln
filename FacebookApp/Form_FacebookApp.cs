@@ -195,6 +195,7 @@ namespace FacebookApp
             if (postedSucsses)
             {
                 MessageBox.Show("Sucssed to Post!");
+                textBox_Status.Text = "What\'s on your mind?";
             }
             else
             {
