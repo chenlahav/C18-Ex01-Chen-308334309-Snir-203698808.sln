@@ -40,10 +40,14 @@
             this.label_email = new System.Windows.Forms.Label();
             this.textBox_email = new System.Windows.Forms.TextBox();
             this.groupBox_Details = new System.Windows.Forms.GroupBox();
+            this.pictureBox_myBirthday = new System.Windows.Forms.PictureBox();
+            this.pictureBox_ProfilePicture = new System.Windows.Forms.PictureBox();
             this.label_Friends = new System.Windows.Forms.Label();
             this.panel_friends = new System.Windows.Forms.Panel();
             this.panel_friendDetails = new System.Windows.Forms.Panel();
             this.button_PostHBD = new System.Windows.Forms.Button();
+            this.pictureBox_birthday = new System.Windows.Forms.PictureBox();
+            this.pictureBox_friend = new System.Windows.Forms.PictureBox();
             this.label_friendLastName = new System.Windows.Forms.Label();
             this.label_friendFirstName = new System.Windows.Forms.Label();
             this.textBox_friendFIrstName = new System.Windows.Forms.TextBox();
@@ -53,6 +57,7 @@
             this.label_Events = new System.Windows.Forms.Label();
             this.panel_eventDetails = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox_whether = new System.Windows.Forms.PictureBox();
             this.label_temp = new System.Windows.Forms.Label();
             this.textBox_humidity = new System.Windows.Forms.TextBox();
             this.label_humidity = new System.Windows.Forms.Label();
@@ -61,28 +66,27 @@
             this.label_eventDate = new System.Windows.Forms.Label();
             this.textBox_eventLocation = new System.Windows.Forms.TextBox();
             this.label_eventLocation = new System.Windows.Forms.Label();
+            this.pictureBox_event = new System.Windows.Forms.PictureBox();
             this.label_event_description = new System.Windows.Forms.Label();
             this.label_eventName = new System.Windows.Forms.Label();
             this.textBox_eventName = new System.Windows.Forms.TextBox();
             this.textBox_eventDescription = new System.Windows.Forms.TextBox();
-            this.pictureBox_whether = new System.Windows.Forms.PictureBox();
-            this.pictureBox_event = new System.Windows.Forms.PictureBox();
-            this.pictureBox_birthday = new System.Windows.Forms.PictureBox();
-            this.pictureBox_friend = new System.Windows.Forms.PictureBox();
-            this.pictureBox_myBirthday = new System.Windows.Forms.PictureBox();
-            this.pictureBox_ProfilePicture = new System.Windows.Forms.PictureBox();
+            this.button_Post = new System.Windows.Forms.Button();
+            this.textBox_Status = new System.Windows.Forms.TextBox();
+            this.panel_PostStatus = new System.Windows.Forms.Panel();
             this.groupBox_Details.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_myBirthday)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ProfilePicture)).BeginInit();
             this.panel_friends.SuspendLayout();
             this.panel_friendDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_birthday)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_friend)).BeginInit();
             this.panel_events.SuspendLayout();
             this.panel_eventDetails.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_whether)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_event)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_birthday)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_friend)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_myBirthday)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ProfilePicture)).BeginInit();
+            this.panel_PostStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox_Friends
@@ -100,7 +104,7 @@
             this.textBox_LastName.Enabled = false;
             this.textBox_LastName.Location = new System.Drawing.Point(656, 151);
             this.textBox_LastName.Name = "textBox_LastName";
-            this.textBox_LastName.Size = new System.Drawing.Size(341, 38);
+            this.textBox_LastName.Size = new System.Drawing.Size(541, 38);
             this.textBox_LastName.TabIndex = 2;
             // 
             // textBox_FirstName
@@ -108,7 +112,7 @@
             this.textBox_FirstName.Enabled = false;
             this.textBox_FirstName.Location = new System.Drawing.Point(656, 82);
             this.textBox_FirstName.Name = "textBox_FirstName";
-            this.textBox_FirstName.Size = new System.Drawing.Size(341, 38);
+            this.textBox_FirstName.Size = new System.Drawing.Size(541, 38);
             this.textBox_FirstName.TabIndex = 3;
             // 
             // label_FirstName
@@ -131,7 +135,7 @@
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(384, 118);
+            this.buttonLogin.Location = new System.Drawing.Point(763, 118);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(199, 62);
             this.buttonLogin.TabIndex = 0;
@@ -142,7 +146,7 @@
             // comboBox_AppID
             // 
             this.comboBox_AppID.FormattingEnabled = true;
-            this.comboBox_AppID.Location = new System.Drawing.Point(290, 52);
+            this.comboBox_AppID.Location = new System.Drawing.Point(669, 52);
             this.comboBox_AppID.Name = "comboBox_AppID";
             this.comboBox_AppID.Size = new System.Drawing.Size(436, 39);
             this.comboBox_AppID.TabIndex = 6;
@@ -150,7 +154,7 @@
             // label_AppID
             // 
             this.label_AppID.AutoSize = true;
-            this.label_AppID.Location = new System.Drawing.Point(176, 55);
+            this.label_AppID.Location = new System.Drawing.Point(555, 55);
             this.label_AppID.Name = "label_AppID";
             this.label_AppID.Size = new System.Drawing.Size(108, 32);
             this.label_AppID.TabIndex = 7;
@@ -170,7 +174,7 @@
             this.textBox_email.Enabled = false;
             this.textBox_email.Location = new System.Drawing.Point(656, 215);
             this.textBox_email.Name = "textBox_email";
-            this.textBox_email.Size = new System.Drawing.Size(341, 38);
+            this.textBox_email.Size = new System.Drawing.Size(541, 38);
             this.textBox_email.TabIndex = 10;
             // 
             // groupBox_Details
@@ -191,6 +195,25 @@
             this.groupBox_Details.Text = "Details";
             this.groupBox_Details.Visible = false;
             // 
+            // pictureBox_myBirthday
+            // 
+            this.pictureBox_myBirthday.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_myBirthday.Image")));
+            this.pictureBox_myBirthday.Location = new System.Drawing.Point(230, 43);
+            this.pictureBox_myBirthday.Name = "pictureBox_myBirthday";
+            this.pictureBox_myBirthday.Size = new System.Drawing.Size(155, 272);
+            this.pictureBox_myBirthday.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_myBirthday.TabIndex = 12;
+            this.pictureBox_myBirthday.TabStop = false;
+            this.pictureBox_myBirthday.Visible = false;
+            // 
+            // pictureBox_ProfilePicture
+            // 
+            this.pictureBox_ProfilePicture.Location = new System.Drawing.Point(1256, 43);
+            this.pictureBox_ProfilePicture.Name = "pictureBox_ProfilePicture";
+            this.pictureBox_ProfilePicture.Size = new System.Drawing.Size(283, 272);
+            this.pictureBox_ProfilePicture.TabIndex = 1;
+            this.pictureBox_ProfilePicture.TabStop = false;
+            // 
             // label_Friends
             // 
             this.label_Friends.AutoSize = true;
@@ -204,7 +227,7 @@
             // 
             this.panel_friends.Controls.Add(this.listBox_Friends);
             this.panel_friends.Controls.Add(this.label_Friends);
-            this.panel_friends.Location = new System.Drawing.Point(57, 373);
+            this.panel_friends.Location = new System.Drawing.Point(57, 473);
             this.panel_friends.Name = "panel_friends";
             this.panel_friends.Size = new System.Drawing.Size(456, 444);
             this.panel_friends.TabIndex = 14;
@@ -219,7 +242,7 @@
             this.panel_friendDetails.Controls.Add(this.label_friendFirstName);
             this.panel_friendDetails.Controls.Add(this.textBox_friendFIrstName);
             this.panel_friendDetails.Controls.Add(this.textBox_friendLastName);
-            this.panel_friendDetails.Location = new System.Drawing.Point(554, 457);
+            this.panel_friendDetails.Location = new System.Drawing.Point(554, 557);
             this.panel_friendDetails.Name = "panel_friendDetails";
             this.panel_friendDetails.Size = new System.Drawing.Size(812, 345);
             this.panel_friendDetails.TabIndex = 18;
@@ -235,6 +258,25 @@
             this.button_PostHBD.UseVisualStyleBackColor = true;
             this.button_PostHBD.Visible = false;
             this.button_PostHBD.Click += new System.EventHandler(this.button_PostHBD_Click);
+            // 
+            // pictureBox_birthday
+            // 
+            this.pictureBox_birthday.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_birthday.Image")));
+            this.pictureBox_birthday.Location = new System.Drawing.Point(423, 21);
+            this.pictureBox_birthday.Name = "pictureBox_birthday";
+            this.pictureBox_birthday.Size = new System.Drawing.Size(84, 141);
+            this.pictureBox_birthday.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_birthday.TabIndex = 19;
+            this.pictureBox_birthday.TabStop = false;
+            this.pictureBox_birthday.Visible = false;
+            // 
+            // pictureBox_friend
+            // 
+            this.pictureBox_friend.Location = new System.Drawing.Point(244, 21);
+            this.pictureBox_friend.Name = "pictureBox_friend";
+            this.pictureBox_friend.Size = new System.Drawing.Size(153, 141);
+            this.pictureBox_friend.TabIndex = 18;
+            this.pictureBox_friend.TabStop = false;
             // 
             // label_friendLastName
             // 
@@ -274,7 +316,7 @@
             // 
             this.panel_events.Controls.Add(this.listBox_Events);
             this.panel_events.Controls.Add(this.label_Events);
-            this.panel_events.Location = new System.Drawing.Point(57, 897);
+            this.panel_events.Location = new System.Drawing.Point(57, 965);
             this.panel_events.Name = "panel_events";
             this.panel_events.Size = new System.Drawing.Size(456, 444);
             this.panel_events.TabIndex = 15;
@@ -311,7 +353,7 @@
             this.panel_eventDetails.Controls.Add(this.label_eventName);
             this.panel_eventDetails.Controls.Add(this.textBox_eventName);
             this.panel_eventDetails.Controls.Add(this.textBox_eventDescription);
-            this.panel_eventDetails.Location = new System.Drawing.Point(554, 897);
+            this.panel_eventDetails.Location = new System.Drawing.Point(554, 965);
             this.panel_eventDetails.Name = "panel_eventDetails";
             this.panel_eventDetails.Size = new System.Drawing.Size(1157, 509);
             this.panel_eventDetails.TabIndex = 19;
@@ -330,6 +372,15 @@
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Weather";
+            // 
+            // pictureBox_whether
+            // 
+            this.pictureBox_whether.Location = new System.Drawing.Point(147, 37);
+            this.pictureBox_whether.Name = "pictureBox_whether";
+            this.pictureBox_whether.Size = new System.Drawing.Size(98, 85);
+            this.pictureBox_whether.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_whether.TabIndex = 28;
+            this.pictureBox_whether.TabStop = false;
             // 
             // label_temp
             // 
@@ -401,6 +452,14 @@
             this.label_eventLocation.TabIndex = 19;
             this.label_eventLocation.Text = "Location:";
             // 
+            // pictureBox_event
+            // 
+            this.pictureBox_event.Location = new System.Drawing.Point(213, 26);
+            this.pictureBox_event.Name = "pictureBox_event";
+            this.pictureBox_event.Size = new System.Drawing.Size(153, 141);
+            this.pictureBox_event.TabIndex = 18;
+            this.pictureBox_event.TabStop = false;
+            // 
             // label_event_description
             // 
             this.label_event_description.AutoSize = true;
@@ -435,66 +494,43 @@
             this.textBox_eventDescription.Size = new System.Drawing.Size(492, 38);
             this.textBox_eventDescription.TabIndex = 12;
             // 
-            // pictureBox_whether
+            // button_Post
             // 
-            this.pictureBox_whether.Location = new System.Drawing.Point(147, 37);
-            this.pictureBox_whether.Name = "pictureBox_whether";
-            this.pictureBox_whether.Size = new System.Drawing.Size(98, 85);
-            this.pictureBox_whether.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_whether.TabIndex = 28;
-            this.pictureBox_whether.TabStop = false;
+            this.button_Post.Enabled = false;
+            this.button_Post.Location = new System.Drawing.Point(939, 26);
+            this.button_Post.Name = "button_Post";
+            this.button_Post.Size = new System.Drawing.Size(134, 51);
+            this.button_Post.TabIndex = 21;
+            this.button_Post.Text = "Post";
+            this.button_Post.UseVisualStyleBackColor = true;
+            this.button_Post.Click += new System.EventHandler(this.button_Post_Click);
             // 
-            // pictureBox_event
+            // textBox_Status
             // 
-            this.pictureBox_event.Location = new System.Drawing.Point(213, 26);
-            this.pictureBox_event.Name = "pictureBox_event";
-            this.pictureBox_event.Size = new System.Drawing.Size(153, 141);
-            this.pictureBox_event.TabIndex = 18;
-            this.pictureBox_event.TabStop = false;
+            this.textBox_Status.Location = new System.Drawing.Point(19, 26);
+            this.textBox_Status.Name = "textBox_Status";
+            this.textBox_Status.Size = new System.Drawing.Size(906, 38);
+            this.textBox_Status.TabIndex = 22;
+            this.textBox_Status.Text = "What\'s on your mind?";
+            this.textBox_Status.TextChanged += new System.EventHandler(this.textBox_Status_TextChanged);
+            this.textBox_Status.Enter += new System.EventHandler(this.textBox_Status_Enter);
+            this.textBox_Status.Leave += new System.EventHandler(this.textBox_Status_Leave);
             // 
-            // pictureBox_birthday
+            // panel_PostStatus
             // 
-            this.pictureBox_birthday.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_birthday.Image")));
-            this.pictureBox_birthday.Location = new System.Drawing.Point(423, 21);
-            this.pictureBox_birthday.Name = "pictureBox_birthday";
-            this.pictureBox_birthday.Size = new System.Drawing.Size(84, 141);
-            this.pictureBox_birthday.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_birthday.TabIndex = 19;
-            this.pictureBox_birthday.TabStop = false;
-            this.pictureBox_birthday.Visible = false;
-            // 
-            // pictureBox_friend
-            // 
-            this.pictureBox_friend.Location = new System.Drawing.Point(244, 21);
-            this.pictureBox_friend.Name = "pictureBox_friend";
-            this.pictureBox_friend.Size = new System.Drawing.Size(153, 141);
-            this.pictureBox_friend.TabIndex = 18;
-            this.pictureBox_friend.TabStop = false;
-            // 
-            // pictureBox_myBirthday
-            // 
-            this.pictureBox_myBirthday.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_myBirthday.Image")));
-            this.pictureBox_myBirthday.Location = new System.Drawing.Point(230, 43);
-            this.pictureBox_myBirthday.Name = "pictureBox_myBirthday";
-            this.pictureBox_myBirthday.Size = new System.Drawing.Size(155, 272);
-            this.pictureBox_myBirthday.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_myBirthday.TabIndex = 12;
-            this.pictureBox_myBirthday.TabStop = false;
-            this.pictureBox_myBirthday.Visible = false;
-            // 
-            // pictureBox_ProfilePicture
-            // 
-            this.pictureBox_ProfilePicture.Location = new System.Drawing.Point(1123, 43);
-            this.pictureBox_ProfilePicture.Name = "pictureBox_ProfilePicture";
-            this.pictureBox_ProfilePicture.Size = new System.Drawing.Size(283, 272);
-            this.pictureBox_ProfilePicture.TabIndex = 1;
-            this.pictureBox_ProfilePicture.TabStop = false;
+            this.panel_PostStatus.Controls.Add(this.textBox_Status);
+            this.panel_PostStatus.Controls.Add(this.button_Post);
+            this.panel_PostStatus.Location = new System.Drawing.Point(38, 352);
+            this.panel_PostStatus.Name = "panel_PostStatus";
+            this.panel_PostStatus.Size = new System.Drawing.Size(1142, 100);
+            this.panel_PostStatus.TabIndex = 23;
+            this.panel_PostStatus.Visible = false;
             // 
             // Form_FacebookApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1893, 1437);
+            this.ClientSize = new System.Drawing.Size(1893, 1748);
             this.Controls.Add(this.panel_eventDetails);
             this.Controls.Add(this.panel_friendDetails);
             this.Controls.Add(this.panel_events);
@@ -503,6 +539,7 @@
             this.Controls.Add(this.label_AppID);
             this.Controls.Add(this.comboBox_AppID);
             this.Controls.Add(this.buttonLogin);
+            this.Controls.Add(this.panel_PostStatus);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_FacebookApp";
             this.Text = "FacebookApp";
@@ -510,10 +547,14 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox_Details.ResumeLayout(false);
             this.groupBox_Details.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_myBirthday)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ProfilePicture)).EndInit();
             this.panel_friends.ResumeLayout(false);
             this.panel_friends.PerformLayout();
             this.panel_friendDetails.ResumeLayout(false);
             this.panel_friendDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_birthday)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_friend)).EndInit();
             this.panel_events.ResumeLayout(false);
             this.panel_events.PerformLayout();
             this.panel_eventDetails.ResumeLayout(false);
@@ -522,10 +563,8 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_whether)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_event)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_birthday)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_friend)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_myBirthday)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ProfilePicture)).EndInit();
+            this.panel_PostStatus.ResumeLayout(false);
+            this.panel_PostStatus.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -574,6 +613,9 @@
         private System.Windows.Forms.Label label_humidity;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox_whether;
+        private System.Windows.Forms.Button button_Post;
+        private System.Windows.Forms.TextBox textBox_Status;
+        private System.Windows.Forms.Panel panel_PostStatus;
     }
 }
 

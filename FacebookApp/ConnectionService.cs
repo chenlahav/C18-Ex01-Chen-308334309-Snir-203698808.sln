@@ -27,12 +27,9 @@ namespace FacebookApp
                     "public_profile",
                     "user_friends",
                     "user_events",
-                    "user_location",
                     "user_birthday",
-                    "manage_pages",
-                    "publish_pages",
-                    "publish_actions",
-                    "user_photos");
+                    "user_posts"
+                    );
                 loggedInUser = result.LoggedInUser;
             }
             catch (Exception e)
@@ -50,7 +47,7 @@ namespace FacebookApp
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            Logout();
         }
     }
 }

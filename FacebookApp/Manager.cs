@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace FacebookApp
 {
@@ -77,7 +76,7 @@ namespace FacebookApp
             return UserHandler.GetEvents(user);
         }
 
-        public string GetFirstName(User i_User = null)
+        public string GetUserFirstName(User i_User = null)
         {
             User user;
             if (i_User == null)
@@ -91,7 +90,7 @@ namespace FacebookApp
             return UserHandler.GetName(user);
         }
 
-        public string GetLastName(User i_User = null)
+        public string GetUserLastName(User i_User = null)
         {
             User user;
             if (i_User == null)
@@ -105,7 +104,7 @@ namespace FacebookApp
             return UserHandler.GetLastName(user);
         }
 
-        public string GetEmail(User i_User = null)
+        public string GetUserEmail(User i_User = null)
         {
             User user;
             if (i_User == null)
@@ -119,7 +118,7 @@ namespace FacebookApp
             return UserHandler.GetEmail(user);
         }
 
-        public string GetURLNormalPicture(User i_User = null)
+        public string GetUserURLNormalPicture(User i_User = null)
         {
             User user;
             if (i_User == null)
@@ -134,7 +133,7 @@ namespace FacebookApp
             return UserHandler.GetURLNormalPicture(user);
         }
 
-        public string GetURLSmallPicture(User i_User = null)
+        public string GetUserURLSmallPicture(User i_User = null)
         {
             User user;
             if (i_User == null)
@@ -163,6 +162,22 @@ namespace FacebookApp
             return PostCreator.CreateHappyBirthdayPost(user, i_UserToTag);
         }
 
+        public bool PostStatus(string i_TextToPost, User i_PostedUser = null)
+        {
+            User user;
+            if(i_PostedUser == null)
+            {
+                user = m_ConnectionService.loggedInUser;
+            }
+            else
+            {
+                user = i_PostedUser;
+            }
+
+            return PostCreator.PostStatus(user, i_TextToPost);
+
+        }
+
         public bool isUserBirthdayToday(User i_User = null)
         {
             if(i_User == null)
@@ -176,9 +191,58 @@ namespace FacebookApp
             
         }
 
+        public CityWeather GetWeather(string i_cityName)
+        {
+            return Weather.GetWeather(i_cityName);
+        }
+
+        public string GetEventName(Event i_Event)
+        {
+            return FacebookEventHandler.GetName(i_Event);
+        }
+
+        public string GetEventDescription(Event i_Event)
+        {
+            return FacebookEventHandler.GetDescription(i_Event);
+        }
+
+        public string GetEventCity(Event i_Event)
+        {
+            return FacebookEventHandler.GetPlaceCity(i_Event);
+        }
+
+        public string GetEventURLPicture(Event i_Event)
+        {
+            return FacebookEventHandler.GetPicture(i_Event);
+        }
+
+        public string GetEventTime(Event i_Event)
+        {
+            return FacebookEventHandler.GetTime(i_Event);
+        }
+
+        public string GetPathOfImageWeather(double i_Temperature)
+        {
+            string imageLocation;
+            if (i_Temperature <= 0)
+            {
+                imageLocation = "..\\..\\Resources\\rainy.png";
+            }
+            else if (i_Temperature > 0 && i_Temperature <= 20)
+            {
+                imageLocation = "..\\..\\Resources\\cloudy.png";
+            }
+            else
+            {
+                imageLocation = "..\\..\\Resources\\sun.png";
+            }
+
+            return imageLocation;
+        }
+
         public void Dispose()
         {
-            m_ConnectionService.Logout();
+            m_ConnectionService.Dispose();
         }
     }
 }

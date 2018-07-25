@@ -29,10 +29,10 @@ namespace FacebookApp
             m_Manager = new Manager(comboBox_AppID.Text);
             if (m_Manager.Login())
             {
-                pictureBox_ProfilePicture.LoadAsync(m_Manager.GetURLNormalPicture());
-                textBox_FirstName.Text = m_Manager.GetFirstName();
-                textBox_LastName.Text = m_Manager.GetLastName();
-                textBox_email.Text = m_Manager.GetEmail();
+                pictureBox_ProfilePicture.LoadAsync(m_Manager.GetUserURLNormalPicture());
+                textBox_FirstName.Text = m_Manager.GetUserFirstName();
+                textBox_LastName.Text = m_Manager.GetUserLastName();
+                textBox_email.Text = m_Manager.GetUserEmail();
                 visibleElements();
                 initFriendList();
                 initEventsList();
@@ -44,7 +44,7 @@ namespace FacebookApp
                         button_PostHBD.Visible = true;
                     }
                 }
-                catch
+                catch(Exception ex)
                 {
                     //do nothing
                 }
@@ -64,6 +64,8 @@ namespace FacebookApp
             groupBox_Details.Visible = true;
             panel_friends.Visible = true;
             panel_events.Visible = true;
+            textBox_Status.Visible = true;
+            panel_PostStatus.Visible = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -115,9 +117,9 @@ namespace FacebookApp
             if(listBox_Friends.SelectedItem != null)
             {
                 User selectedFriend = listBox_Friends.SelectedItem as User;
-                textBox_friendFIrstName.Text = m_Manager.GetFirstName(selectedFriend);
-                textBox_friendLastName.Text = m_Manager.GetLastName(selectedFriend);
-                pictureBox_friend.LoadAsync(m_Manager.GetURLSmallPicture(selectedFriend));
+                textBox_friendFIrstName.Text = m_Manager.GetUserFirstName(selectedFriend);
+                textBox_friendLastName.Text = m_Manager.GetUserLastName(selectedFriend);
+                pictureBox_friend.LoadAsync(m_Manager.GetUserURLSmallPicture(selectedFriend));
                 panel_friendDetails.Visible = true;
                 try
                 {
@@ -138,32 +140,21 @@ namespace FacebookApp
             if (listBox_Events.SelectedItem != null)
             {
                 Event selectedEvent = listBox_Events.SelectedItem as Event;
-                textBox_eventName.Text = selectedEvent.Name;
-                textBox_eventLocation.Text = selectedEvent.Place != null ? selectedEvent.Place.Location.City : "" ;
-                textBox_eventDescription.Text = selectedEvent.Description != null ? selectedEvent.Description : "";
-                textBox_eventDate.Text = selectedEvent.TimeString;
-                pictureBox_event.LoadAsync(selectedEvent.PictureSmallURL);
+                textBox_eventName.Text = m_Manager.GetEventName(selectedEvent);
+                textBox_eventLocation.Text = m_Manager.GetEventCity(selectedEvent);
+                textBox_eventDescription.Text = m_Manager.GetEventDescription(selectedEvent);
+                textBox_eventDate.Text = m_Manager.GetEventTime(selectedEvent);
+                pictureBox_event.LoadAsync(m_Manager.GetEventURLPicture(selectedEvent));
 
                 string cityName = textBox_eventLocation.Text;
-                CityWeather weather = Weather.GetWeather(cityName);
+                CityWeather weather = m_Manager.GetWeather(cityName);
                 
                 textBox_Temp.Text = weather.m_Temperature;
                 textBox_humidity.Text = weather.m_humidity;
 
                 double temperature = double.Parse(textBox_Temp.Text);
 
-                if (temperature <= 0)
-                {
-                    pictureBox_whether.ImageLocation = "..\\..\\Resources\\rainy.png";
-                }
-                else if(temperature > 0 && temperature <= 20)
-                {
-                    pictureBox_whether.ImageLocation = "..\\..\\Resources\\cloudy.png";
-                }
-                else
-                {
-                    pictureBox_whether.ImageLocation = "..\\..\\Resources\\sun.png";
-                }
+                pictureBox_whether.ImageLocation = m_Manager.GetPathOfImageWeather(temperature);
 
                 panel_eventDetails.Visible = true;
             }
@@ -171,12 +162,12 @@ namespace FacebookApp
 
         private void Form_FacebookApp_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Action action = m_Manager.Dispose;
             try
             {
+                Action action = m_Manager.Dispose;
                 FacebookService.Logout(action);
             }
-            catch(Exception exc)
+            catch(Exception ex)
             {
                 //do nothing
             }
@@ -186,7 +177,59 @@ namespace FacebookApp
         private void button_PostHBD_Click(object sender, EventArgs e)
         {
             User SelectedFriend = listBox_Friends.SelectedItem as User;
-            m_Manager.PostHappyBirthday(SelectedFriend);
+            bool postedSucsses = m_Manager.PostHappyBirthday(SelectedFriend);
+            if(postedSucsses)
+            {
+                MessageBox.Show("Sucssed to Post!");
+            }
+            else
+            {
+                MessageBox.Show("Failed to Post!");
+            }
+        }
+
+        private void button_Post_Click(object sender, EventArgs e)
+        {
+            bool postedSucsses;
+            postedSucsses = m_Manager.PostStatus(textBox_Status.Text);
+            if (postedSucsses)
+            {
+                MessageBox.Show("Sucssed to Post!");
+            }
+            else
+            {
+                MessageBox.Show("Failed to Post!");
+            }
+        }
+
+        private void textBox_Status_Enter(object sender, EventArgs e)
+        {
+            if(textBox_Status.Text == "What\'s on your mind?")
+            {
+                textBox_Status.Text = null;
+                button_Post.Enabled = false;
+            }
+        }
+
+        private void textBox_Status_Leave(object sender, EventArgs e)
+        {
+            if (textBox_Status.Text == "")
+            {
+                textBox_Status.Text = "What\'s on your mind?";
+                button_Post.Enabled = false;
+            }
+        }
+
+        private void textBox_Status_TextChanged(object sender, EventArgs e)
+        {
+            if(textBox_Status.Text != "" && textBox_Status.Text != "What\'s on your mind?")
+            {
+                button_Post.Enabled = true;
+            }
+            else
+            {
+                button_Post.Enabled = false;
+            }
         }
     }
 }

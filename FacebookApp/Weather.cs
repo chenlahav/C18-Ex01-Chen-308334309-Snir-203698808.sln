@@ -8,9 +8,9 @@ using System.Xml;
 
 namespace FacebookApp
 {
-    public static class Weather
+    internal static class Weather
     {
-        public static CityWeather GetWeather(string i_cityName)
+        internal static CityWeather GetWeather(string i_cityName)
         {
 
             CityWeather weather = new CityWeather();
