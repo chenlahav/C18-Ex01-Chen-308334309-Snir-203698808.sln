@@ -38,7 +38,7 @@ namespace FacebookApp
                 initEventsList();
                 try
                 {
-                    if (BirthdayHandler.isUserBirthdayToday(m_Manager.GetUserBirthday()))
+                    if (m_Manager.isUserBirthdayToday())
                     {
                         pictureBox_myBirthday.Visible = true;
                         button_PostHBD.Visible = true;
@@ -70,7 +70,6 @@ namespace FacebookApp
         {
             comboBox_AppID.Items.Add("272862089537667");
             comboBox_AppID.Items.Add("1430451463721328");
-            comboBox_AppID.Items.Add("1450160541956417");
             comboBox_AppID.SelectedIndex = 1;
         }
 
@@ -122,7 +121,7 @@ namespace FacebookApp
                 panel_friendDetails.Visible = true;
                 try
                 {
-                    if (BirthdayHandler.isUserBirthdayToday(m_Manager.GetUserBirthday(selectedFriend)))
+                    if (m_Manager.isUserBirthdayToday(selectedFriend))
                     {
                         pictureBox_birthday.Visible = true;
                     }
@@ -177,7 +176,7 @@ namespace FacebookApp
             {
                 FacebookService.Logout(action);
             }
-            catch
+            catch(Exception exc)
             {
                 //do nothing
             }
@@ -187,7 +186,7 @@ namespace FacebookApp
         private void button_PostHBD_Click(object sender, EventArgs e)
         {
             User SelectedFriend = listBox_Friends.SelectedItem as User;
-            PostCreator.CreateHappyBirthdayPost(SelectedFriend);
+            m_Manager.PostHappyBirthday(SelectedFriend);
         }
     }
 }

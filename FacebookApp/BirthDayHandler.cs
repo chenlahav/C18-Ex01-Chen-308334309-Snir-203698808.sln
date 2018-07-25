@@ -7,25 +7,11 @@ using System.Threading.Tasks;
 
 namespace FacebookApp
 {
-    static class BirthdayHandler
+    internal static class BirthdayHandler
     {
-        public static List<User> getUserThatBirthdayOn(List<User> i_AllFriends, string i_BirthDay)
+        internal static bool isUserBirthdayToday(string i_UserBirthday)
         {
-            List<User> o_UsersList = new List<User>();
-
-            foreach (User user in i_AllFriends)
-            {
-                if (user.Birthday.Equals(i_BirthDay))
-                {
-                    o_UsersList.Add(user);
-                }
-            }
-
-            return o_UsersList;
-        }
-
-        public static bool isUserBirthdayToday(string i_UserBirthday)
-        {
+            return true;
            bool isBirthdayToday;
             DateTime parsedBirthDateFriend = DateTime.Parse(i_UserBirthday);
             DateTime timeNow = DateTime.Now;

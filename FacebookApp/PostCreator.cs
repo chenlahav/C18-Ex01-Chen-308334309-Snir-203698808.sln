@@ -9,11 +9,22 @@ namespace FacebookApp
 {
     static class PostCreator
     {
-        public static void CreateHappyBirthdayPost(User i_friendBirthday)
+        internal static bool CreateHappyBirthdayPost(User i_PosedUser, User i_friendBirthday)
         {
-            string textToPost= $"Happy Birthday {i_friendBirthday.FirstName}!!!";
+            bool postSucsses;
+            string textToPost= "Happy Birthday!!!";
 
-            //m_Manager.Post($"Happy Birthday {i_friendBirthday.FirstName}!!!",i_friendBirthday);
+            try
+            {
+                i_PosedUser.PostStatus(textToPost, i_TaggedFriendIDs: i_friendBirthday.Id);
+                postSucsses = true;
+            }
+            catch (Exception e)
+            {
+                postSucsses = false;
+            }
+
+            return postSucsses;
         }
     }
 }

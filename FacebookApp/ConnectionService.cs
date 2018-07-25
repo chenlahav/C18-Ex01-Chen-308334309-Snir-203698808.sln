@@ -31,6 +31,7 @@ namespace FacebookApp
                     "user_birthday",
                     "manage_pages",
                     "publish_pages",
+                    "publish_actions",
                     "user_photos");
                 loggedInUser = result.LoggedInUser;
             }

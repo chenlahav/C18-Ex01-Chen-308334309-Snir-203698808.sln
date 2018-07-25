@@ -149,40 +149,31 @@ namespace FacebookApp
             return UserHandler.GetURLSmallPicture(user);
         }
 
-        public bool Post(string i_PostText, User i_User = null, User i_UserToTag = null)
+        public bool PostHappyBirthday(User i_UserToTag, User i_PostedUser = null)
         {
-            bool postSucsses;
-            string idToTag;
             User user;
-            if (i_UserToTag != null)
-            {
-                idToTag = i_UserToTag.Id;
-            }
-            else
-            {
-                idToTag = null;
-            }
-
-            if (i_User == null)
+            if(i_PostedUser == null)
             {
                 user = m_ConnectionService.loggedInUser;
             }
             else
             {
-                user = i_User;
+                user = i_PostedUser;
             }
+            return PostCreator.CreateHappyBirthdayPost(user, i_UserToTag);
+        }
 
-            try
+        public bool isUserBirthdayToday(User i_User = null)
+        {
+            if(i_User == null)
             {
-                user.PostStatus(i_PostText,i_TaggedFriendIDs: idToTag);
-                postSucsses = true;
+                return BirthdayHandler.isUserBirthdayToday(m_ConnectionService.loggedInUser.Birthday);
             }
-            catch(Exception e)
+            else
             {
-                postSucsses = false;
+                return BirthdayHandler.isUserBirthdayToday(i_User.Birthday);
             }
-
-            return postSucsses;
+            
         }
 
         public void Dispose()
