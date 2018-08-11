@@ -83,24 +83,7 @@ namespace FacebookApp
 
         private void initEventsList()
         {
-            try
-            {
-
-                if (m_Manager.GetAllEvents() != null)
-                {
-                    listBox_Events.Items.Clear();
-                    listBox_Events.DisplayMember = "Name";
-                    foreach (Event FBevent in m_Manager.GetAllEvents())
-                    {
-                        listBox_Events.Items.Add(FBevent);
-                    }
-
-                }
-            }
-            catch (FacebookOAuthException e)
-            {
-                // DO nothing. The event will not display.
-            }
+            eventBindingSource.DataSource = m_Manager.GetAllEvents();
         }
 
         private void listBox_Friends_SelectedIndexChanged(object sender, EventArgs e)
@@ -125,6 +108,7 @@ namespace FacebookApp
         {
             if (listBox_Events.SelectedItem != null)
             {
+                /*
                 Event selectedEvent = listBox_Events.SelectedItem as Event;
                 textBox_eventName.Text = m_Manager.GetEventName(selectedEvent);
                 textBox_eventLocation.Text = m_Manager.GetEventCity(selectedEvent);
@@ -133,7 +117,9 @@ namespace FacebookApp
                 pictureBox_event.LoadAsync(m_Manager.GetEventURLPicture(selectedEvent));
 
                 string cityName = textBox_eventLocation.Text;
-                CityWeather weather = m_Manager.GetWeather(cityName);
+                */
+                //textBox_eventLocation.Text = m_Manager.GetEventCity(selectedEvent);
+                CityWeather weather = m_Manager.GetWeather("eilat");
                 
                 textBox_Temp.Text = weather.m_Temperature;
                 textBox_humidity.Text = weather.m_humidity;
