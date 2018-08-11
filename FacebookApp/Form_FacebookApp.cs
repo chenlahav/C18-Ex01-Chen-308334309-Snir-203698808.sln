@@ -41,7 +41,6 @@ namespace FacebookApp
                     if (m_Manager.isUserBirthdayToday())
                     {
                         pictureBox_myBirthday.Visible = true;
-                        button_PostHBD.Visible = true;
                     }
                 }
                 catch(Exception ex)
@@ -66,6 +65,8 @@ namespace FacebookApp
             panel_events.Visible = true;
             textBox_Status.Visible = true;
             panel_PostStatus.Visible = true;
+            panel_friendDetails.Visible = true;
+            showPanelHB(listBox_Friends.SelectedItem);
         }
 
         private void Form_FacebookApp_Load(object sender, EventArgs e)
@@ -77,17 +78,7 @@ namespace FacebookApp
 
         private void initFriendList()
         {
-            if (m_Manager.GetAllFriends() != null)
-            {
-                listBox_Friends.Items.Clear();
-                listBox_Friends.DisplayMember = "FirstName";
-               
-                foreach (User friend in m_Manager.GetAllFriends())
-                {
-                    listBox_Friends.Items.Add(friend);
-                }
-
-            }
+            userBindingSource.DataSource = m_Manager.GetAllFriends();
         }
 
         private void initEventsList()
@@ -114,24 +105,19 @@ namespace FacebookApp
 
         private void listBox_Friends_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(listBox_Friends.SelectedItem != null)
+            showPanelHB(sender);
+        }
+
+        private void showPanelHB(object user)
+        {
+            User selectedFriend = user as User;
+            if (m_Manager.isUserBirthdayToday(selectedFriend))
             {
-                User selectedFriend = listBox_Friends.SelectedItem as User;
-                textBox_friendFIrstName.Text = m_Manager.GetUserFirstName(selectedFriend);
-                textBox_friendLastName.Text = m_Manager.GetUserLastName(selectedFriend);
-                pictureBox_friend.LoadAsync(m_Manager.GetUserURLSmallPicture(selectedFriend));
-                panel_friendDetails.Visible = true;
-                try
-                {
-                    if (m_Manager.isUserBirthdayToday(selectedFriend))
-                    {
-                        pictureBox_birthday.Visible = true;
-                    }
-                }
-                catch
-                {
-                    //do nothing
-                }
+                panelHB.Visible = true;
+            }
+            else
+            {
+                panelHB.Visible = false;
             }
         }
 
