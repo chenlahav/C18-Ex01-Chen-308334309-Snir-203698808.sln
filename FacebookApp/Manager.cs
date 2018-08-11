@@ -10,7 +10,7 @@ namespace FacebookApp
 {
     public class Manager : IDisposable
     {
-        private ConnectionService m_ConnectionService;
+        private connectionServiceBase m_ConnectionService;
 
         public Manager(string i_AppID)
         {
@@ -38,7 +38,7 @@ namespace FacebookApp
             User user;
             if(i_User == null)
             {
-                user = m_ConnectionService.loggedInUser;
+                user = m_ConnectionService.GetLoggedInUser();
             }
             else
             {
@@ -53,7 +53,7 @@ namespace FacebookApp
             User user;
             if (i_User == null)
             {
-                user = m_ConnectionService.loggedInUser;
+                user = m_ConnectionService.GetLoggedInUser();
             }
             else
             {
@@ -67,7 +67,7 @@ namespace FacebookApp
             User user;
             if (i_User == null)
             {
-                user = m_ConnectionService.loggedInUser;
+                user = m_ConnectionService.GetLoggedInUser();
             }
             else
             {
@@ -81,7 +81,7 @@ namespace FacebookApp
             User user;
             if (i_User == null)
             {
-                user = m_ConnectionService.loggedInUser;
+                user = m_ConnectionService.GetLoggedInUser();
             }
             else
             {
@@ -95,7 +95,7 @@ namespace FacebookApp
             User user;
             if (i_User == null)
             {
-                user = m_ConnectionService.loggedInUser;
+                user = m_ConnectionService.GetLoggedInUser();
             }
             else
             {
@@ -109,7 +109,7 @@ namespace FacebookApp
             User user;
             if (i_User == null)
             {
-                user = m_ConnectionService.loggedInUser;
+                user = m_ConnectionService.GetLoggedInUser();
             }
             else
             {
@@ -123,7 +123,7 @@ namespace FacebookApp
             User user;
             if (i_User == null)
             {
-                user = m_ConnectionService.loggedInUser;
+                user = m_ConnectionService.GetLoggedInUser();
             }
             else
             {
@@ -138,7 +138,7 @@ namespace FacebookApp
             User user;
             if (i_User == null)
             {
-                user = m_ConnectionService.loggedInUser;
+                user = m_ConnectionService.GetLoggedInUser();
             }
             else
             {
@@ -153,7 +153,7 @@ namespace FacebookApp
             User user;
             if(i_PostedUser == null)
             {
-                user = m_ConnectionService.loggedInUser;
+                user = m_ConnectionService.GetLoggedInUser();
             }
             else
             {
@@ -167,7 +167,7 @@ namespace FacebookApp
             User user;
             if(i_PostedUser == null)
             {
-                user = m_ConnectionService.loggedInUser;
+                user = m_ConnectionService.GetLoggedInUser();
             }
             else
             {
@@ -182,7 +182,7 @@ namespace FacebookApp
         {
             if(i_User == null)
             {
-                return BirthdayHandler.isUserBirthdayToday(m_ConnectionService.loggedInUser.Birthday);
+                return BirthdayHandler.isUserBirthdayToday(m_ConnectionService.GetLoggedInUser().Birthday);
             }
             else
             {

@@ -8,17 +8,22 @@ using FacebookWrapper.ObjectModel;
 
 namespace FacebookApp
 {
-    public class ConnectionService : IDisposable
+    public class ConnectionService : connectionServiceBase
     {
         private string m_AppID;
         public User loggedInUser { get; private set; }
+
+        public override User GetLoggedInUser()
+        {
+            return loggedInUser;
+        }
 
         public ConnectionService(string i_AppID)
         {
             m_AppID = i_AppID;
         }
 
-        public User Login()
+        public override User Login()
         {
             try
             {
@@ -45,9 +50,10 @@ namespace FacebookApp
             Login();
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
             Logout();
         }
+
     }
 }

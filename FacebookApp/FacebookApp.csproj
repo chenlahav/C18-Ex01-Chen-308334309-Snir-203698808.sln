@@ -55,6 +55,7 @@
     <Compile Include="BirthdayHandler.cs" />
     <Compile Include="CityWeather.cs" />
     <Compile Include="ConnectionService.cs" />
+    <Compile Include="connectionServiceBase.cs" />
     <Compile Include="EventHandler.cs" />
     <Compile Include="PostCreator.cs" />
     <Compile Include="Form_FacebookApp.cs">
