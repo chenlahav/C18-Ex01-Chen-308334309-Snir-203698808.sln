@@ -68,7 +68,7 @@ namespace FacebookApp
             panel_PostStatus.Visible = true;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form_FacebookApp_Load(object sender, EventArgs e)
         {
             comboBox_AppID.Items.Add("272862089537667");
             comboBox_AppID.Items.Add("1430451463721328");
