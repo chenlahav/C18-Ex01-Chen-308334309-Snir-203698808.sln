@@ -1,8 +1,8 @@
 ==========================Exercise Checking Report========================== 
-Exercise No...........: 1
+Exercise No...........: 2
 First Student Details.: 308334309 – Chen Lahav
 Second Student Details: 203698808 – Snir Kolatker 
-Delivery Date.........: 26 – JOLY - 2018
+Delivery Date.........: 16 – August - 2018
 Delivered In Delay....: No
 Delay Reason..........: 
 Visual Studio Version.: 2015 
