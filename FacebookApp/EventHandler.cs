@@ -9,29 +9,29 @@ namespace FacebookApp
 {
     internal static class FacebookEventHandler
     {
-        internal static string GetName(Event i_Event)
+        internal static string GetName(EventWithWeather i_Event)
         {
-            return i_Event.Name;
+            return i_Event.Event.Name;
         }
 
-        internal static string GetPlaceCity(Event i_Event)
+        internal static string GetPlaceCity(EventWithWeather i_Event)
         {
-            return i_Event.Place != null ? i_Event.Place.Location.City : "";
+            return i_Event.Event.Place != null ? i_Event.Event.Place.Location.City : "";
         }
 
-        internal static string GetDescription(Event i_Event)
+        internal static string GetDescription(EventWithWeather i_Event)
         {
-            return i_Event != null ? i_Event.Description : "";
+            return i_Event != null ? i_Event.Event.Description : "";
         }
 
-        internal static string GetTime(Event i_Event)
+        internal static string GetTime(EventWithWeather i_Event)
         {
-            return i_Event.TimeString;
+            return i_Event.Event.TimeString;
         }
 
-        internal static string GetPicture(Event i_Event)
+        internal static string GetPicture(EventWithWeather i_Event)
         {
-            return i_Event.PictureSmallURL;
+            return i_Event.Event.PictureSmallURL;
         }
     }
 }

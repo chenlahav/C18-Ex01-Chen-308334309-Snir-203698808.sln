@@ -90,9 +90,9 @@ namespace FacebookApp
                 {
                     listBox_Events.Items.Clear();
                     listBox_Events.DisplayMember = "Name";
-                    foreach (Event FBevent in m_Manager.GetAllEvents())
+                    foreach (EventWithWeather evnetWithWeather in m_Manager.GetAllEvents())
                     {
-                        listBox_Events.Items.Add(FBevent);
+                        listBox_Events.Items.Add(evnetWithWeather);
                     }
 
                 }
@@ -125,7 +125,7 @@ namespace FacebookApp
         {
             if (listBox_Events.SelectedItem != null)
             {
-                Event selectedEvent = listBox_Events.SelectedItem as Event;
+                EventWithWeather selectedEvent = listBox_Events.SelectedItem as EventWithWeather;
                 textBox_eventName.Text = m_Manager.GetEventName(selectedEvent);
                 textBox_eventLocation.Text = m_Manager.GetEventCity(selectedEvent);
                 textBox_eventDescription.Text = m_Manager.GetEventDescription(selectedEvent);
@@ -133,10 +133,10 @@ namespace FacebookApp
                 pictureBox_event.LoadAsync(m_Manager.GetEventURLPicture(selectedEvent));
 
                 string cityName = textBox_eventLocation.Text;
-                CityWeather weather = m_Manager.GetWeather(cityName);
+                CityWeather cityWeather = selectedEvent.CityWeather; //m_Manager.GetWeather(cityName);
                 
-                textBox_Temp.Text = weather.m_Temperature;
-                textBox_humidity.Text = weather.m_humidity;
+                textBox_Temp.Text = cityWeather.m_Temperature;
+                textBox_humidity.Text = cityWeather.m_humidity;
 
                 double temperature = double.Parse(textBox_Temp.Text);
 

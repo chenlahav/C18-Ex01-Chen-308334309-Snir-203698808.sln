@@ -62,7 +62,7 @@ namespace FacebookApp
             return UserHandler.GetBirthday(user);
         }
 
-        public List<Event> GetAllEvents(User i_User = null)
+        public List<EventWithWeather> GetAllEvents(User i_User = null)
         {
             User user;
             if (i_User == null)
@@ -73,7 +73,14 @@ namespace FacebookApp
             {
                 user = i_User;
             }
-            return UserHandler.GetEvents(user);
+            List<Event> listOfEvent = UserHandler.GetEvents(user);
+
+            List<EventWithWeather> o_ListOfEventWithWeather = new List<EventWithWeather>();
+            foreach (Event evnt in listOfEvent)
+            {
+                o_ListOfEventWithWeather.Add(new EventWithWeather(evnt));
+            }
+            return o_ListOfEventWithWeather;
         }
 
         public string GetUserFirstName(User i_User = null)
@@ -196,27 +203,27 @@ namespace FacebookApp
             return Weather.GetWeather(i_cityName);
         }
 
-        public string GetEventName(Event i_Event)
+        public string GetEventName(EventWithWeather i_Event)
         {
             return FacebookEventHandler.GetName(i_Event);
         }
 
-        public string GetEventDescription(Event i_Event)
+        public string GetEventDescription(EventWithWeather i_Event)
         {
             return FacebookEventHandler.GetDescription(i_Event);
         }
 
-        public string GetEventCity(Event i_Event)
+        public string GetEventCity(EventWithWeather i_Event)
         {
             return FacebookEventHandler.GetPlaceCity(i_Event);
         }
 
-        public string GetEventURLPicture(Event i_Event)
+        public string GetEventURLPicture(EventWithWeather i_Event)
         {
             return FacebookEventHandler.GetPicture(i_Event);
         }
 
-        public string GetEventTime(Event i_Event)
+        public string GetEventTime(EventWithWeather i_Event)
         {
             return FacebookEventHandler.GetTime(i_Event);
         }
