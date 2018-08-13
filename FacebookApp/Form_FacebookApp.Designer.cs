@@ -31,10 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label firstNameLabel;
             System.Windows.Forms.Label lastNameLabel;
-            System.Windows.Forms.Label descriptionLabel;
-            System.Windows.Forms.Label linkToFacebookLabel;
-            System.Windows.Forms.Label nameLabel;
-            System.Windows.Forms.Label startTimeLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_FacebookApp));
             this.listBox_Friends = new System.Windows.Forms.ListBox();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -60,30 +56,29 @@
             this.pictureBox_birthday = new System.Windows.Forms.PictureBox();
             this.panel_events = new System.Windows.Forms.Panel();
             this.listBox_Events = new System.Windows.Forms.ListBox();
-            this.eventBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label_Events = new System.Windows.Forms.Label();
             this.panel_eventDetails = new System.Windows.Forms.Panel();
-            this.descriptionTextBox = new System.Windows.Forms.TextBox();
-            this.imageSmallPictureBox1 = new System.Windows.Forms.PictureBox();
-            this.linkToFacebookLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.EventnameLabel = new System.Windows.Forms.Label();
-            this.startTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox_whether = new System.Windows.Forms.PictureBox();
             this.label_temp = new System.Windows.Forms.Label();
             this.textBox_humidity = new System.Windows.Forms.TextBox();
             this.label_humidity = new System.Windows.Forms.Label();
             this.textBox_Temp = new System.Windows.Forms.TextBox();
+            this.textBox_eventDate = new System.Windows.Forms.TextBox();
+            this.label_eventDate = new System.Windows.Forms.Label();
+            this.textBox_eventLocation = new System.Windows.Forms.TextBox();
+            this.label_eventLocation = new System.Windows.Forms.Label();
+            this.pictureBox_event = new System.Windows.Forms.PictureBox();
+            this.label_event_description = new System.Windows.Forms.Label();
+            this.label_eventName = new System.Windows.Forms.Label();
+            this.textBox_eventName = new System.Windows.Forms.TextBox();
+            this.textBox_eventDescription = new System.Windows.Forms.TextBox();
             this.button_Post = new System.Windows.Forms.Button();
             this.textBox_Status = new System.Windows.Forms.TextBox();
             this.panel_PostStatus = new System.Windows.Forms.Panel();
             this.panelHB = new System.Windows.Forms.Panel();
             firstNameLabel = new System.Windows.Forms.Label();
             lastNameLabel = new System.Windows.Forms.Label();
-            descriptionLabel = new System.Windows.Forms.Label();
-            linkToFacebookLabel = new System.Windows.Forms.Label();
-            nameLabel = new System.Windows.Forms.Label();
-            startTimeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.groupBox_Details.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_myBirthday)).BeginInit();
@@ -93,11 +88,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.imageSmallPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_birthday)).BeginInit();
             this.panel_events.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).BeginInit();
             this.panel_eventDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSmallPictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_whether)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_event)).BeginInit();
             this.panel_PostStatus.SuspendLayout();
             this.panelHB.SuspendLayout();
             this.SuspendLayout();
@@ -119,42 +113,6 @@
             lastNameLabel.Size = new System.Drawing.Size(159, 32);
             lastNameLabel.TabIndex = 24;
             lastNameLabel.Text = "Last Name:";
-            // 
-            // descriptionLabel
-            // 
-            descriptionLabel.AutoSize = true;
-            descriptionLabel.Location = new System.Drawing.Point(33, 249);
-            descriptionLabel.Name = "descriptionLabel";
-            descriptionLabel.Size = new System.Drawing.Size(166, 32);
-            descriptionLabel.TabIndex = 29;
-            descriptionLabel.Text = "Description:";
-            // 
-            // linkToFacebookLabel
-            // 
-            linkToFacebookLabel.AutoSize = true;
-            linkToFacebookLabel.Location = new System.Drawing.Point(33, 328);
-            linkToFacebookLabel.Name = "linkToFacebookLabel";
-            linkToFacebookLabel.Size = new System.Drawing.Size(248, 32);
-            linkToFacebookLabel.TabIndex = 33;
-            linkToFacebookLabel.Text = "Link To Facebook:";
-            // 
-            // nameLabel
-            // 
-            nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(33, 187);
-            nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(98, 32);
-            nameLabel.TabIndex = 35;
-            nameLabel.Text = "Name:";
-            // 
-            // startTimeLabel
-            // 
-            startTimeLabel.AutoSize = true;
-            startTimeLabel.Location = new System.Drawing.Point(33, 388);
-            startTimeLabel.Name = "startTimeLabel";
-            startTimeLabel.Size = new System.Drawing.Size(153, 32);
-            startTimeLabel.TabIndex = 37;
-            startTimeLabel.Text = "Start Time:";
             // 
             // listBox_Friends
             // 
@@ -326,7 +284,7 @@
             this.firstNameLabel1.Name = "firstNameLabel1";
             this.firstNameLabel1.Size = new System.Drawing.Size(208, 43);
             this.firstNameLabel1.TabIndex = 21;
-            this.firstNameLabel1.Text = "label_FriendName";
+            this.firstNameLabel1.Text = "label1";
             // 
             // imageSmallPictureBox
             // 
@@ -344,7 +302,7 @@
             this.lastNameLabel1.Name = "lastNameLabel1";
             this.lastNameLabel1.Size = new System.Drawing.Size(208, 34);
             this.lastNameLabel1.TabIndex = 25;
-            this.lastNameLabel1.Text = "label_FriendLastName";
+            this.lastNameLabel1.Text = "label1";
             // 
             // button_PostHBD
             // 
@@ -354,6 +312,7 @@
             this.button_PostHBD.TabIndex = 20;
             this.button_PostHBD.Text = "Post Happy Birthday";
             this.button_PostHBD.UseVisualStyleBackColor = true;
+            //this.button_PostHBD.Visible = false;
             this.button_PostHBD.Click += new System.EventHandler(this.button_PostHBD_Click);
             // 
             // pictureBox_birthday
@@ -365,6 +324,7 @@
             this.pictureBox_birthday.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_birthday.TabIndex = 19;
             this.pictureBox_birthday.TabStop = false;
+            //this.pictureBox_birthday.Visible = false;
             // 
             // panel_events
             // 
@@ -378,8 +338,6 @@
             // 
             // listBox_Events
             // 
-            this.listBox_Events.DataSource = this.eventBindingSource;
-            this.listBox_Events.DisplayMember = "Name";
             this.listBox_Events.FormattingEnabled = true;
             this.listBox_Events.ItemHeight = 31;
             this.listBox_Events.Location = new System.Drawing.Point(13, 84);
@@ -387,10 +345,6 @@
             this.listBox_Events.Size = new System.Drawing.Size(427, 345);
             this.listBox_Events.TabIndex = 9;
             this.listBox_Events.SelectedIndexChanged += new System.EventHandler(this.listBox_Events_SelectedIndexChanged);
-            // 
-            // eventBindingSource
-            // 
-            this.eventBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Event);
             // 
             // label_Events
             // 
@@ -403,65 +357,21 @@
             // 
             // panel_eventDetails
             // 
-            this.panel_eventDetails.Controls.Add(descriptionLabel);
-            this.panel_eventDetails.Controls.Add(this.descriptionTextBox);
-            this.panel_eventDetails.Controls.Add(this.imageSmallPictureBox1);
-            this.panel_eventDetails.Controls.Add(linkToFacebookLabel);
-            this.panel_eventDetails.Controls.Add(this.linkToFacebookLinkLabel);
-            this.panel_eventDetails.Controls.Add(nameLabel);
-            this.panel_eventDetails.Controls.Add(this.EventnameLabel);
-            this.panel_eventDetails.Controls.Add(startTimeLabel);
-            this.panel_eventDetails.Controls.Add(this.startTimeDateTimePicker);
             this.panel_eventDetails.Controls.Add(this.groupBox1);
+            this.panel_eventDetails.Controls.Add(this.textBox_eventDate);
+            this.panel_eventDetails.Controls.Add(this.label_eventDate);
+            this.panel_eventDetails.Controls.Add(this.textBox_eventLocation);
+            this.panel_eventDetails.Controls.Add(this.label_eventLocation);
+            this.panel_eventDetails.Controls.Add(this.pictureBox_event);
+            this.panel_eventDetails.Controls.Add(this.label_event_description);
+            this.panel_eventDetails.Controls.Add(this.label_eventName);
+            this.panel_eventDetails.Controls.Add(this.textBox_eventName);
+            this.panel_eventDetails.Controls.Add(this.textBox_eventDescription);
             this.panel_eventDetails.Location = new System.Drawing.Point(554, 965);
             this.panel_eventDetails.Name = "panel_eventDetails";
-            this.panel_eventDetails.Size = new System.Drawing.Size(1304, 581);
+            this.panel_eventDetails.Size = new System.Drawing.Size(1157, 509);
             this.panel_eventDetails.TabIndex = 19;
             this.panel_eventDetails.Visible = false;
-            // 
-            // descriptionTextBox
-            // 
-            this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Description", true));
-            this.descriptionTextBox.Location = new System.Drawing.Point(287, 249);
-            this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(501, 38);
-            this.descriptionTextBox.TabIndex = 30;
-            // 
-            // imageSmallPictureBox1
-            // 
-            this.imageSmallPictureBox1.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.eventBindingSource, "ImageSmall", true));
-            this.imageSmallPictureBox1.Location = new System.Drawing.Point(498, 16);
-            this.imageSmallPictureBox1.Name = "imageSmallPictureBox1";
-            this.imageSmallPictureBox1.Size = new System.Drawing.Size(171, 152);
-            this.imageSmallPictureBox1.TabIndex = 32;
-            this.imageSmallPictureBox1.TabStop = false;
-            // 
-            // linkToFacebookLinkLabel
-            // 
-            this.linkToFacebookLinkLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "LinkToFacebook", true));
-            this.linkToFacebookLinkLabel.Location = new System.Drawing.Point(287, 321);
-            this.linkToFacebookLinkLabel.Name = "linkToFacebookLinkLabel";
-            this.linkToFacebookLinkLabel.Size = new System.Drawing.Size(501, 56);
-            this.linkToFacebookLinkLabel.TabIndex = 34;
-            this.linkToFacebookLinkLabel.TabStop = true;
-            this.linkToFacebookLinkLabel.Text = "linkLabel1";
-            // 
-            // EventnameLabel
-            // 
-            this.EventnameLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Name", true));
-            this.EventnameLabel.Location = new System.Drawing.Point(281, 187);
-            this.EventnameLabel.Name = "EventnameLabel";
-            this.EventnameLabel.Size = new System.Drawing.Size(501, 47);
-            this.EventnameLabel.TabIndex = 36;
-            this.EventnameLabel.Text = "label1";
-            // 
-            // startTimeDateTimePicker
-            // 
-            this.startTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.eventBindingSource, "StartTime", true));
-            this.startTimeDateTimePicker.Location = new System.Drawing.Point(287, 384);
-            this.startTimeDateTimePicker.Name = "startTimeDateTimePicker";
-            this.startTimeDateTimePicker.Size = new System.Drawing.Size(501, 38);
-            this.startTimeDateTimePicker.TabIndex = 38;
             // 
             // groupBox1
             // 
@@ -470,7 +380,7 @@
             this.groupBox1.Controls.Add(this.textBox_humidity);
             this.groupBox1.Controls.Add(this.label_humidity);
             this.groupBox1.Controls.Add(this.textBox_Temp);
-            this.groupBox1.Location = new System.Drawing.Point(863, 176);
+            this.groupBox1.Location = new System.Drawing.Point(723, 174);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(403, 269);
             this.groupBox1.TabIndex = 29;
@@ -522,6 +432,82 @@
             this.textBox_Temp.TabIndex = 26;
             this.textBox_Temp.Text = "None";
             // 
+            // textBox_eventDate
+            // 
+            this.textBox_eventDate.Enabled = false;
+            this.textBox_eventDate.Location = new System.Drawing.Point(209, 391);
+            this.textBox_eventDate.Name = "textBox_eventDate";
+            this.textBox_eventDate.Size = new System.Drawing.Size(492, 38);
+            this.textBox_eventDate.TabIndex = 22;
+            // 
+            // label_eventDate
+            // 
+            this.label_eventDate.AutoSize = true;
+            this.label_eventDate.Location = new System.Drawing.Point(22, 397);
+            this.label_eventDate.Name = "label_eventDate";
+            this.label_eventDate.Size = new System.Drawing.Size(83, 32);
+            this.label_eventDate.TabIndex = 21;
+            this.label_eventDate.Text = "Date:";
+            // 
+            // textBox_eventLocation
+            // 
+            this.textBox_eventLocation.Enabled = false;
+            this.textBox_eventLocation.Location = new System.Drawing.Point(209, 328);
+            this.textBox_eventLocation.Name = "textBox_eventLocation";
+            this.textBox_eventLocation.Size = new System.Drawing.Size(492, 38);
+            this.textBox_eventLocation.TabIndex = 20;
+            // 
+            // label_eventLocation
+            // 
+            this.label_eventLocation.AutoSize = true;
+            this.label_eventLocation.Location = new System.Drawing.Point(22, 334);
+            this.label_eventLocation.Name = "label_eventLocation";
+            this.label_eventLocation.Size = new System.Drawing.Size(132, 32);
+            this.label_eventLocation.TabIndex = 19;
+            this.label_eventLocation.Text = "Location:";
+            // 
+            // pictureBox_event
+            // 
+            this.pictureBox_event.Location = new System.Drawing.Point(213, 26);
+            this.pictureBox_event.Name = "pictureBox_event";
+            this.pictureBox_event.Size = new System.Drawing.Size(153, 141);
+            this.pictureBox_event.TabIndex = 18;
+            this.pictureBox_event.TabStop = false;
+            // 
+            // label_event_description
+            // 
+            this.label_event_description.AutoSize = true;
+            this.label_event_description.Location = new System.Drawing.Point(22, 259);
+            this.label_event_description.Name = "label_event_description";
+            this.label_event_description.Size = new System.Drawing.Size(166, 32);
+            this.label_event_description.TabIndex = 15;
+            this.label_event_description.Text = "Description:";
+            // 
+            // label_eventName
+            // 
+            this.label_eventName.AutoSize = true;
+            this.label_eventName.Location = new System.Drawing.Point(22, 190);
+            this.label_eventName.Name = "label_eventName";
+            this.label_eventName.Size = new System.Drawing.Size(178, 32);
+            this.label_eventName.TabIndex = 14;
+            this.label_eventName.Text = "Event Name:";
+            // 
+            // textBox_eventName
+            // 
+            this.textBox_eventName.Enabled = false;
+            this.textBox_eventName.Location = new System.Drawing.Point(209, 190);
+            this.textBox_eventName.Name = "textBox_eventName";
+            this.textBox_eventName.Size = new System.Drawing.Size(492, 38);
+            this.textBox_eventName.TabIndex = 13;
+            // 
+            // textBox_eventDescription
+            // 
+            this.textBox_eventDescription.Enabled = false;
+            this.textBox_eventDescription.Location = new System.Drawing.Point(209, 256);
+            this.textBox_eventDescription.Name = "textBox_eventDescription";
+            this.textBox_eventDescription.Size = new System.Drawing.Size(492, 38);
+            this.textBox_eventDescription.TabIndex = 12;
+            // 
             // button_Post
             // 
             this.button_Post.Enabled = false;
@@ -568,7 +554,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2115, 1748);
+            this.ClientSize = new System.Drawing.Size(1893, 1748);
             this.Controls.Add(this.panelHB);
             this.Controls.Add(this.panel_eventDetails);
             this.Controls.Add(this.panel_friendDetails);
@@ -597,13 +583,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_birthday)).EndInit();
             this.panel_events.ResumeLayout(false);
             this.panel_events.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).EndInit();
             this.panel_eventDetails.ResumeLayout(false);
             this.panel_eventDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSmallPictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_whether)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_event)).EndInit();
             this.panel_PostStatus.ResumeLayout(false);
             this.panel_PostStatus.PerformLayout();
             this.panelHB.ResumeLayout(false);
@@ -632,6 +617,15 @@
         private System.Windows.Forms.Label label_Events;
         private System.Windows.Forms.Panel panel_friendDetails;
         private System.Windows.Forms.Panel panel_eventDetails;
+        private System.Windows.Forms.Label label_eventDate;
+        private System.Windows.Forms.TextBox textBox_eventLocation;
+        private System.Windows.Forms.Label label_eventLocation;
+        private System.Windows.Forms.PictureBox pictureBox_event;
+        private System.Windows.Forms.Label label_event_description;
+        private System.Windows.Forms.Label label_eventName;
+        private System.Windows.Forms.TextBox textBox_eventName;
+        private System.Windows.Forms.TextBox textBox_eventDescription;
+        private System.Windows.Forms.TextBox textBox_eventDate;
         private System.Windows.Forms.PictureBox pictureBox_birthday;
         private System.Windows.Forms.PictureBox pictureBox_myBirthday;
         private System.Windows.Forms.Button button_PostHBD;
@@ -649,12 +643,6 @@
         private System.Windows.Forms.PictureBox imageSmallPictureBox;
         private System.Windows.Forms.Label lastNameLabel1;
         private System.Windows.Forms.Panel panelHB;
-        private System.Windows.Forms.BindingSource eventBindingSource;
-        private System.Windows.Forms.TextBox descriptionTextBox;
-        private System.Windows.Forms.PictureBox imageSmallPictureBox1;
-        private System.Windows.Forms.LinkLabel linkToFacebookLinkLabel;
-        private System.Windows.Forms.Label EventnameLabel;
-        private System.Windows.Forms.DateTimePicker startTimeDateTimePicker;
     }
 }
 
