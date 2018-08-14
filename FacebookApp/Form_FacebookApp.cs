@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Facebook;
@@ -34,8 +35,8 @@ namespace FacebookApp
                 textBox_LastName.Text = m_Manager.GetUserLastName();
                 textBox_email.Text = m_Manager.GetUserEmail();
                 visibleElements();
-                initFriendList();
-                initEventsList();
+                (new Thread (initFriendList)).Start();
+                new Thread (initEventsList).Start();
                 try
                 {
                     if (m_Manager.isUserBirthdayToday())
@@ -78,7 +79,7 @@ namespace FacebookApp
 
         private void initFriendList()
         {
-            userBindingSource.DataSource = m_Manager.GetAllFriends();
+            listBox_Friends.Invoke(new Action(() => userBindingSource.DataSource = m_Manager.GetAllFriends()));
         }
 
         private void initEventsList()
@@ -88,11 +89,11 @@ namespace FacebookApp
 
                 if (m_Manager.GetAllEvents() != null)
                 {
-                    listBox_Events.Items.Clear();
-                    listBox_Events.DisplayMember = "Name";
+                    //listBox_Events.Items.Clear();
+                    listBox_Events.Invoke(new Action(()=> listBox_Events.DisplayMember = "Name"));
                     foreach (EventWithWeather evnetWithWeather in m_Manager.GetAllEvents())
                     {
-                        listBox_Events.Items.Add(evnetWithWeather);
+                        listBox_Events.Invoke(new Action (() => listBox_Events.Items.Add(evnetWithWeather)));
                     }
 
                 }
