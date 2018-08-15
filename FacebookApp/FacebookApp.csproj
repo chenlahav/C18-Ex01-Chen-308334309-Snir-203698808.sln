@@ -67,6 +67,7 @@
     <Compile Include="Manager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProxyEvent.cs" />
     <Compile Include="UserHandler.cs" />
     <Compile Include="Weather.cs" />
     <EmbeddedResource Include="Form_FacebookApp.resx">

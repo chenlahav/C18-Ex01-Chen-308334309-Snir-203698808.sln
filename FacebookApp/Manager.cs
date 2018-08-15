@@ -11,10 +11,37 @@ namespace FacebookApp
     public class Manager : IDisposable
     {
         private ConnectionService m_ConnectionService;
+        private static Manager m_instance = null; 
+        private static string m_AppID = null;
+        private static readonly object sr_Locker =  new object();
 
-        public Manager(string i_AppID)
+        private Manager(string i_AppID)
         {
             m_ConnectionService = new ConnectionService(i_AppID);
+        }
+
+        public static Manager GetInstance(string i_appID = null)
+        {
+            m_AppID = (i_appID != null) ? i_appID : m_AppID;
+
+            if(m_instance == null)
+            {
+                lock (sr_Locker)
+                {
+                    if (m_instance == null)
+                    {
+                            if (m_AppID != null)
+                        {
+                            m_instance = new Manager(m_AppID);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                throw new MissingMemberException("Appip missed.");
+            }
+            return m_instance;
         }
 
         public bool Login()
@@ -73,14 +100,8 @@ namespace FacebookApp
             {
                 user = i_User;
             }
-            List<Event> listOfEvent = UserHandler.GetEvents(user);
 
-            List<EventWithWeather> o_ListOfEventWithWeather = new List<EventWithWeather>();
-            foreach (Event evnt in listOfEvent)
-            {
-                o_ListOfEventWithWeather.Add(new EventWithWeather(evnt));
-            }
-            return o_ListOfEventWithWeather;
+            return ProxyEvent.GetAllEvents(user);
         }
 
         public string GetUserFirstName(User i_User = null)

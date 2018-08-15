@@ -27,7 +27,7 @@ namespace FacebookApp
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            m_Manager = new Manager(comboBox_AppID.Text);
+            m_Manager = Manager.GetInstance(comboBox_AppID.Text);
             if (m_Manager.Login())
             {
                 pictureBox_ProfilePicture.LoadAsync(m_Manager.GetUserURLNormalPicture());
