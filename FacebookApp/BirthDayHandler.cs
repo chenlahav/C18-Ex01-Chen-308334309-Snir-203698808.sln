@@ -11,12 +11,11 @@ namespace FacebookApp
     {
         internal static bool isUserBirthdayToday(string i_UserBirthday)
         {
-            //return true;
-           bool isBirthdayToday;
+            
+            bool isBirthdayToday;
             DateTime parsedBirthDateFriend = DateTime.Parse(i_UserBirthday);
             DateTime timeNow = DateTime.Now;
-            if (parsedBirthDateFriend.Day == timeNow.Day && 
-                parsedBirthDateFriend.Month == timeNow.Month)
+            if (parsedBirthDateFriend.Day == timeNow.Day &&  parsedBirthDateFriend.Month == timeNow.Month)
             {
                 isBirthdayToday = true;
             }
