@@ -52,11 +52,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandLogin.cs" />
     <Compile Include="BirthdayHandler.cs" />
     <Compile Include="CityWeather.cs" />
     <Compile Include="ConnectionService.cs" />
     <Compile Include="EventHandler.cs" />
     <Compile Include="EventWithWeather.cs" />
+    <Compile Include="ICommand.cs" />
     <Compile Include="PostCreator.cs" />
     <Compile Include="Form_FacebookApp.cs">
       <SubType>Form</SubType>

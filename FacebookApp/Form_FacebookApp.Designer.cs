@@ -77,6 +77,7 @@
             this.textBox_Status = new System.Windows.Forms.TextBox();
             this.panel_PostStatus = new System.Windows.Forms.Panel();
             this.panelHB = new System.Windows.Forms.Panel();
+            this.BtnSort = new System.Windows.Forms.Button();
             firstNameLabel = new System.Windows.Forms.Label();
             lastNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
@@ -312,7 +313,6 @@
             this.button_PostHBD.TabIndex = 20;
             this.button_PostHBD.Text = "Post Happy Birthday";
             this.button_PostHBD.UseVisualStyleBackColor = true;
-            //this.button_PostHBD.Visible = false;
             this.button_PostHBD.Click += new System.EventHandler(this.button_PostHBD_Click);
             // 
             // pictureBox_birthday
@@ -324,10 +324,10 @@
             this.pictureBox_birthday.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_birthday.TabIndex = 19;
             this.pictureBox_birthday.TabStop = false;
-            //this.pictureBox_birthday.Visible = false;
             // 
             // panel_events
             // 
+            this.panel_events.Controls.Add(this.BtnSort);
             this.panel_events.Controls.Add(this.listBox_Events);
             this.panel_events.Controls.Add(this.label_Events);
             this.panel_events.Location = new System.Drawing.Point(57, 965);
@@ -550,6 +550,16 @@
             this.panelHB.TabIndex = 24;
             this.panelHB.Visible = false;
             // 
+            // BtnSort
+            // 
+            this.BtnSort.Location = new System.Drawing.Point(175, 15);
+            this.BtnSort.Name = "BtnSort";
+            this.BtnSort.Size = new System.Drawing.Size(227, 52);
+            this.BtnSort.TabIndex = 14;
+            this.BtnSort.Text = "Ascending";
+            this.BtnSort.UseVisualStyleBackColor = true;
+            this.BtnSort.Click += new System.EventHandler(this.BtnSort_Click);
+            // 
             // Form_FacebookApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -643,6 +653,7 @@
         private System.Windows.Forms.PictureBox imageSmallPictureBox;
         private System.Windows.Forms.Label lastNameLabel1;
         private System.Windows.Forms.Panel panelHB;
+        private System.Windows.Forms.Button BtnSort;
     }
 }
 

@@ -13,12 +13,14 @@ namespace FacebookApp
         private ConnectionService m_ConnectionService;
         private static Manager m_instance = null; 
         private static string m_AppID = null;
+       
         private static readonly object sr_Locker =  new object();
 
         private Manager(string i_AppID)
         {
             m_ConnectionService = new ConnectionService(i_AppID);
         }
+
 
         public static Manager GetInstance(string i_appID = null)
         {
@@ -30,18 +32,26 @@ namespace FacebookApp
                 {
                     if (m_instance == null)
                     {
-                            if (m_AppID != null)
+                         if (m_AppID != null)
                         {
                             m_instance = new Manager(m_AppID);
+                        }
+                        else
+                        {
+                            throw new MissingMemberException("Appip missed.");
                         }
                     }
                 }
             }
-            else
-            {
-                throw new MissingMemberException("Appip missed.");
-            }
+            
             return m_instance;
+        }
+
+
+        public void SetAppId(string i_Appid)
+        {
+            m_AppID = i_Appid;
+            m_ConnectionService = new ConnectionService(m_AppID);
         }
 
         public bool Login()

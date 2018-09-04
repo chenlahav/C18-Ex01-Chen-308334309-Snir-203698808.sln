@@ -16,7 +16,8 @@ namespace FacebookApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_FacebookApp());
+            CommandLogin loginCommand = new CommandLogin();
+            Application.Run(new Form_FacebookApp(loginCommand));
         }
     }
 }

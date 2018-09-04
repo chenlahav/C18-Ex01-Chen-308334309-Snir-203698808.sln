@@ -17,9 +17,12 @@ namespace FacebookApp
     public partial class Form_FacebookApp : Form
     {
         private Manager m_Manager;
+        CommandLogin m_commandLogin;
+        private bool m_isEventListOrdeByAscending = true;
 
-        public Form_FacebookApp()
+        public Form_FacebookApp(CommandLogin i_CommandLogin)
         {
+            m_commandLogin = i_CommandLogin;
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(650, 600);
             this.CenterToScreen();
@@ -28,15 +31,17 @@ namespace FacebookApp
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             m_Manager = Manager.GetInstance(comboBox_AppID.Text);
-            if (m_Manager.Login())
+
+            m_commandLogin.Execute();
+            if (m_commandLogin.Result)
             {
                 pictureBox_ProfilePicture.LoadAsync(m_Manager.GetUserURLNormalPicture());
                 textBox_FirstName.Text = m_Manager.GetUserFirstName();
                 textBox_LastName.Text = m_Manager.GetUserLastName();
                 textBox_email.Text = m_Manager.GetUserEmail();
                 visibleElements();
-                (new Thread (initFriendList)).Start();
-                new Thread (initEventsList).Start();
+                new Thread (initFriendList).Start();
+                new Thread (() => initEventsList()).Start();
                 try
                 {
                     if (m_Manager.isUserBirthdayToday())
@@ -82,20 +87,22 @@ namespace FacebookApp
             listBox_Friends.Invoke(new Action(() => userBindingSource.DataSource = m_Manager.GetAllFriends()));
         }
 
-        private void initEventsList()
+        private void initEventsList(List<EventWithWeather> i_ListEvnetsWithWeather = null)
         {
             try
             {
-
-                if (m_Manager.GetAllEvents() != null)
+                List<EventWithWeather> eventsWithWeather = (i_ListEvnetsWithWeather == null) ? m_Manager.GetAllEvents() : i_ListEvnetsWithWeather;
+                if (eventsWithWeather != null)
                 {
-                    //listBox_Events.Items.Clear();
+                    if (listBox_Events.Items.Count > 0)
+                    {
+                        listBox_Events.Items.Clear();
+                    }
                     listBox_Events.Invoke(new Action(()=> listBox_Events.DisplayMember = "Name"));
-                    foreach (EventWithWeather evnetWithWeather in m_Manager.GetAllEvents())
+                    foreach (EventWithWeather evnetWithWeather in eventsWithWeather)
                     {
                         listBox_Events.Invoke(new Action (() => listBox_Events.Items.Add(evnetWithWeather)));
                     }
-
                 }
             }
             catch (FacebookOAuthException e)
@@ -218,6 +225,27 @@ namespace FacebookApp
             {
                 button_Post.Enabled = false;
             }
+        }
+
+        private void BtnSort_Click(object sender, EventArgs e)
+        {
+            if(m_isEventListOrdeByAscending)
+            {
+                List<EventWithWeather> listOfEvents = m_Manager.GetAllEvents();
+                listOfEvents.Sort((x, y) => string.Compare(x.Name, y.Name));
+                initEventsList(listOfEvents);
+                m_isEventListOrdeByAscending = !m_isEventListOrdeByAscending;
+                BtnSort.Text = "Descending";
+            }
+            else
+            {
+                List<EventWithWeather> listOfEvents = m_Manager.GetAllEvents();
+                listOfEvents.Sort((x, y) => string.Compare(y.Name, x.Name));
+                initEventsList(listOfEvents);
+                m_isEventListOrdeByAscending = !m_isEventListOrdeByAscending;
+                BtnSort.Text = "Ascending";
+            }
+
         }
     }
 }
