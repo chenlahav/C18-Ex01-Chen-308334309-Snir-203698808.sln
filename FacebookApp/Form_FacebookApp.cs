@@ -18,7 +18,7 @@ namespace FacebookApp
     {
         private Manager m_Manager;
         ICommand m_commandLogin;
-        private bool m_isEventListOrdeByAscending = true;
+        private bool m_isEventListSortByAscending = true;
 
         public Form_FacebookApp(ICommand i_CommandLogin)
         {
@@ -229,12 +229,12 @@ namespace FacebookApp
 
         private void BtnSort_Click(object sender, EventArgs e)
         {
-            if(m_isEventListOrdeByAscending)
+            if(m_isEventListSortByAscending)
             {
                 List<EventWithWeather> listOfEvents = m_Manager.GetAllEvents();
                 listOfEvents.Sort((x, y) => string.Compare(x.Name, y.Name));
                 initEventsList(listOfEvents);
-                m_isEventListOrdeByAscending = !m_isEventListOrdeByAscending;
+                m_isEventListSortByAscending = !m_isEventListSortByAscending;
                 BtnSort.Text = "Descending";
             }
             else
@@ -242,7 +242,7 @@ namespace FacebookApp
                 List<EventWithWeather> listOfEvents = m_Manager.GetAllEvents();
                 listOfEvents.Sort((x, y) => string.Compare(y.Name, x.Name));
                 initEventsList(listOfEvents);
-                m_isEventListOrdeByAscending = !m_isEventListOrdeByAscending;
+                m_isEventListSortByAscending = !m_isEventListSortByAscending;
                 BtnSort.Text = "Ascending";
             }
 
