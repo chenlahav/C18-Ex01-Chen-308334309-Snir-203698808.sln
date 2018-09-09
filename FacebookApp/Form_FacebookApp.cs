@@ -17,10 +17,10 @@ namespace FacebookApp
     public partial class Form_FacebookApp : Form
     {
         private Manager m_Manager;
-        CommandLogin m_commandLogin;
+        ICommand m_commandLogin;
         private bool m_isEventListOrdeByAscending = true;
 
-        public Form_FacebookApp(CommandLogin i_CommandLogin)
+        public Form_FacebookApp(ICommand i_CommandLogin)
         {
             m_commandLogin = i_CommandLogin;
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace FacebookApp
             m_Manager = Manager.GetInstance(comboBox_AppID.Text);
 
             m_commandLogin.Execute();
-            if (m_commandLogin.Result)
+            if (((CommandLogin)m_commandLogin).Result)
             {
                 pictureBox_ProfilePicture.LoadAsync(m_Manager.GetUserURLNormalPicture());
                 textBox_FirstName.Text = m_Manager.GetUserFirstName();
